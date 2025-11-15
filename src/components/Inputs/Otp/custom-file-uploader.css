@@ -1,0 +1,55 @@
+.upload-con {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 2px dashed #cccccc;
+	border-radius: 12px;
+	padding: 12px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.upload-con:hover {
+	border-color: #4caf50;
+	background-color: #f9f9f9;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+}
+
+.upload-con.drag-over {
+	border-color: #4caf50;
+	background-color: #e8f5e8;
+	border-style: solid;
+	transform: scale(1.02);
+}
+
+.file-details {
+	width: 200px;
+	background-color: aqua;
+}
+
+.progress-bar-con {
+	width: 200px;
+	height: 40px;
+	border-radius: 12px;
+	border: 1px solid green;
+	margin-top: 10px;
+}
+.progress-bar {
+	height: 100%;
+	background-color: green;
+	border-radius: 12px;
+    animation:2s linear forwards;
+}
+
+@keyframes progressAnimation {
+	from {
+		width: 0%;
+	}
+	to {
+		width: 100%;
+	}
+}

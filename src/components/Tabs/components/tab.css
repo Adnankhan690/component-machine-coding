@@ -1,0 +1,8 @@
+.tab-button {
+    display: flex;
+    gap: 4px;
+}
+.tab-button[data-active-button='true'] {
+    background-color: green;
+    font-weight: 600;
+}

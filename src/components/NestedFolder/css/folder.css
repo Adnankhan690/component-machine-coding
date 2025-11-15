@@ -1,0 +1,31 @@
+.folder-parent-con{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: left;
+}
+.nested-folder {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* border: 1px solid red; */
+    margin-left: 10px;
+}
+
+
+
+
+.folder-con {
+    display: flex;
+    gap: 10px;
+    /* border: 1px solid black; */
+}
+.add-icon {
+    cursor: pointer;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+button {
+    cursor: pointer;
+}
