@@ -7,6 +7,7 @@ import ScreenInput from "@/screens/ScreenInput/ScreenInput";
 import ScreenDialog from "@/screens/ScreenDialog/ScreenDialog";
 import ScreenPopover from "@/screens/ScreenPopover/ScreenPopover";
 import ScreenNestedFolder from "@/screens/NestedFolder/ScreenNestedFolder";
+import ScreenPropsDemo from "@/screens/ScreenPropsDemo/ScreenPropsDemo";
 
 export default function RouteManager() {
 	return (
@@ -19,6 +20,7 @@ export default function RouteManager() {
 					<Route path={Routes.SCREEN_DIALOG} element={<ScreenDialog />} />
 					<Route path={Routes.SCREEN_POPOVER} element={<ScreenPopover />} />
 					<Route path={Routes.SCREEN_NESTED_FOLDER} element={<ScreenNestedFolder />} />
+					<Route path={Routes.SCREEN_PROPS} element={<ScreenPropsDemo />} />
 				</Route>
 			</ReactRooutes>
 		</BrowserRouter>

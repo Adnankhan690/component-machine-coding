@@ -1,0 +1,178 @@
+import axios from "axios";
+import "./multiple-file-uploader.css";
+import { useState } from "react";
+
+interface FileType {
+	id: string;
+	file: File;
+	uploadState: {
+		state: "idle" | "uploading" | "success" | "error";
+		progress: number;
+		error?: string | null;
+	};
+}
+
+export default function MultipleFileUploader() {
+	const [files, setFiles] = useState<FileType[]>([]);
+
+	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setFiles([]);
+		const selectedFiles = e.target.files;
+		if (selectedFiles) {
+			const filesArray: FileType[] = Array.from(selectedFiles).map((file) => {
+				return {
+					id: crypto.randomUUID(),
+					file,
+					uploadState: {
+						state: "idle",
+						progress: 0,
+						error: null,
+					},
+				};
+			});
+
+			setFiles((prevFiles) => [...prevFiles, ...filesArray]);
+		}
+	};
+
+	const handleFileUpload = async () => {
+		if (files.length === 0) return;
+
+		const uploadPromises = files.map(async (file) => {
+			try {
+				const formdata = new FormData();
+				formdata.append("file", file.file);
+
+				await axios.post(
+					"https://api.escuelajs.co/api/v1/files/upload",
+					formdata,
+					{
+						onUploadProgress(progressEvent) {
+							const progress = Math.round(
+								(progressEvent.loaded / progressEvent.total!) * 100
+							);
+							setFiles((prevFiles) => {
+								return prevFiles.map((currFile) => {
+									if (currFile.id !== file.id) return currFile;
+									return {
+										...currFile,
+										uploadState: {
+											...currFile.uploadState,
+											progress,
+											state: "uploading",
+										},
+									};
+								});
+							});
+						},
+					}
+				);
+
+				// Mark this specific file as successful
+				setFiles((prevFiles) => {
+					return prevFiles.map((currFile) => {
+						if (currFile.id !== file.id) return currFile;
+						return {
+							...currFile,
+							uploadState: {
+								...currFile.uploadState,
+								state: "success",
+								progress: 100,
+							},
+						};
+					});
+				});
+
+				return { fileId: file.id, status: "success" };
+			} catch (error) {
+				// Mark this specific file as failed
+				setFiles((prevFiles) => {
+					return prevFiles.map((currFile) => {
+						if (currFile.id !== file.id) return currFile;
+						return {
+							...currFile,
+							uploadState: {
+								...currFile.uploadState,
+								state: "error",
+								error: error instanceof Error ? error.message : "Unknown error",
+							},
+						};
+					});
+				});
+
+				return { fileId: file.id, status: "error", error };
+			}
+		});
+
+		// Wait for all uploads to complete (success or failure)
+		await Promise.allSettled(uploadPromises);
+	};
+
+	return (
+		<div>
+			<hr />
+			Multiple File Uploader Component
+			<input
+				type="file"
+				id="multiple-file-upload"
+				multiple
+				onChange={handleFileChange}
+			/>
+			<label htmlFor="multiple-file-upload">
+				<div className="upload-file-input-con">Upload Files</div>
+			</label>
+			<button onClick={handleFileUpload}>Upload</button>
+			<SelectedFiles files={files} />
+		</div>
+	);
+}
+
+interface SelectedFilesProps {
+	files: FileType[];
+}
+
+function SelectedFiles({ files }: SelectedFilesProps) {
+	return (
+		<>
+			<div className="selected-file-con">
+				{files.map((fileObj) => {
+					const currentFile = fileObj.file;
+					return (
+						<div className="selected-file">
+							<div className="file-info-con">
+								<div className="file-info">
+									{fileObj.uploadState.error && (
+										<p style={{ color: "red" }}>{fileObj.uploadState.error}</p>
+									)}
+									{fileObj.uploadState.error && (
+										<p style={{ color: "red" }}>Something went wrong!</p>
+									)}
+									<p>icon</p>
+									<div className="file-other-info">
+										<p>{currentFile.name}</p>
+										<div className="file-size">
+											<p>{Math.round(currentFile.size / 1024).toFixed(2)}KB</p>
+											<p>{currentFile.type}</p>
+										</div>
+									</div>
+								</div>
+								<div>right</div>
+							</div>
+							<Progressbar progress={fileObj.uploadState.progress} />
+						</div>
+					);
+				})}
+			</div>
+		</>
+	);
+}
+
+function Progressbar({ progress = 0 }: { progress: number }) {
+	return (
+		<div className="progress-con">
+			<div className="progress" style={{ width: `${progress}%` }}>
+				{progress}%
+			</div>
+		</div>
+	);
+}

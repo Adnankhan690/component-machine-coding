@@ -3,6 +3,7 @@ import Otp from "@/components/Inputs/Otp/Otp";
 import { useLocation } from "react-router-dom";
 import "./input-con.css";
 import CustomFileUploader from "@/components/Inputs/Otp/CustomFileUploader";
+import MultipleFileUploader from "@/components/Inputs/Otp/MultipleFileUploader";
 
 export default function ScreenInput() {
 	const location = useLocation();
@@ -16,6 +17,8 @@ export default function ScreenInput() {
 				<Otp />
 				<FileUploader />
 				<CustomFileUploader />
+				<hr />
+				<MultipleFileUploader />
 			</div>
 		</>
 	);

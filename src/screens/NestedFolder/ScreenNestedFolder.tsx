@@ -24,40 +24,78 @@ import {
 	NESTED_KEY,
 	saveToStorage,
 } from "@/utils/utilsStorage";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+
+const myVersion = (cb: () => void) => {
+	const ref = useRef<any>(cb);
+
+	ref.current = cb;
+	return ref;
+}
 
 export default function ScreenNestedFolder() {
-	const [nestedFolderData, setNestedFolderdata] = useState<
-		nestedFolderDataType[]
-	>(() => loadFromStorage() || nestedData);
+	// const [nestedFolderData, setNestedFolderdata] = useState<
+	// 	nestedFolderDataType[]
+	// >(() => loadFromStorage() || nestedData);
+
+	// useEffect(() => {
+	// 	saveToStorage(NESTED_KEY, nestedFolderData);
+	// }, [nestedFolderData]);
+
+	// useEffect(() => {
+	// 	const handleTabSync = (event: StorageEvent) => {
+	// 		if (event.key === NESTED_KEY) {
+	// 			const newData = event.newValue;
+	// 			if (newData) {
+	// 				setNestedFolderdata(JSON.parse(newData));
+	// 			}
+	// 		}
+	// 	};
+
+	// 	window.addEventListener("storage", handleTabSync);
+
+	// 	return () => {
+	// 		window.removeEventListener("storage", handleTabSync);
+	// 	};
+	// }, []);
+
+	const [counter, setCounter] = useState(0);
+	const ref = useRef<number | null>(null);
+
+	const handleClick = () => {
+		setCounter(counter + 11);
+		ref.current = 11 + counter;
+	};
+
+	const myFn = myVersion(() => {
+		console.log(counter);
+	})
+
+	const dummyFn = () => {
+		console.log("----", counter);
+		
+	}
 
 	useEffect(() => {
-		saveToStorage(NESTED_KEY, nestedFolderData);
-	}, [nestedFolderData]);
+		const id = setInterval(() => {
+			myFn.current();
+			dummyFn();
+		}, 1000);
 
-	useEffect(() => {
-		const handleTabSync = (event: StorageEvent) => {
-			if (event.key === NESTED_KEY) {
-				const newData = event.newValue;
-				if (newData) {
-					setNestedFolderdata(JSON.parse(newData));
-				}
-			}
-		};
-
-		window.addEventListener("storage", handleTabSync);
-
-		return () => {
-			window.removeEventListener("storage", handleTabSync);
-		};
-	}, []);
+		return () => clearInterval(id);
+	}, [])
 
 	return (
 		<div>
-			<NestedFolder
+			{/* <NestedFolder
 				setNestedFolderdata={setNestedFolderdata}
 				nestedFolderData={nestedFolderData}
-			/>
+			/> */}
+
+			<button onClick={handleClick}>+</button>
+
+			{counter}
 		</div>
 	);
 }
