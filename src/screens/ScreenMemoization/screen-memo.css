@@ -1,0 +1,9 @@
+.screen-con {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 16px;
+    color: black;
+    padding: 12px;
+    gap: 20px;
+}

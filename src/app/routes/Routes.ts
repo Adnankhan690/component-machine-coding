@@ -7,6 +7,10 @@ const Routes = {
     SCREEN_POPOVER: '/popover',
     SCREEN_NESTED_FOLDER: '/nested-folder',
     SCREEN_PROPS: '/props',
+    SCREEN_RENDER_PROP_PATTERN: '/render-prop-pattern',
+    SCREEN_CHILDREN_PROP_PATTERN: '/children-prop-pattern',
+    SCREEN_PROGRESSBAR: '/progressbar',
+    SCREEN_MEMOIZATION: '/memoization',
 };
 
 export default Routes;

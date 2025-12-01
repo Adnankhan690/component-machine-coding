@@ -7,13 +7,13 @@
 import { useEffect, useRef, useState } from "react";
 
 interface OtpProps {
-	inputLength?: number;
-	className?: string;
-	inputClassName?: string;
-	disabled?: boolean;
+    inputLength?: number;
+    className?: string;
+    inputClassName?: string;
+    disabled?: boolean;
 }
 
-export default function Otp({
+export default function OtpWithRenderProp({
 	inputLength = 6,
 	className = "",
 	inputClassName = "",

@@ -8,5 +8,9 @@ export const sidebar = [
     { name: "Popover", path: Routes.SCREEN_POPOVER, id: "popover" },
     { name: "Nested Folder", path: Routes.SCREEN_NESTED_FOLDER, id: "nestedFolder" },
     { name: "Props Demo", path: Routes.SCREEN_PROPS, id: "propsDemo" },
+    { name: "Render Prop Pattern", path: Routes.SCREEN_RENDER_PROP_PATTERN, id: "renderPropPattern" },
+    { name: "Children Prop Pattern", path: Routes.SCREEN_CHILDREN_PROP_PATTERN, id: "childrenPropPattern" },
+    { name: "Progressbar", path: Routes.SCREEN_PROGRESSBAR, id: "progressbar" },
+    { name: "Memoization", path: Routes.SCREEN_MEMOIZATION, id: "memoization" },
     
 ]

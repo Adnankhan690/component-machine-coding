@@ -8,6 +8,10 @@ import ScreenDialog from "@/screens/ScreenDialog/ScreenDialog";
 import ScreenPopover from "@/screens/ScreenPopover/ScreenPopover";
 import ScreenNestedFolder from "@/screens/NestedFolder/ScreenNestedFolder";
 import ScreenPropsDemo from "@/screens/ScreenPropsDemo/ScreenPropsDemo";
+import ScreenRenderPropPattern from "@/screens/ScreenRenderPropPattern/ScreenRenderPropPattern";
+import ScreenChildrenPattern from "@/screens/ScreenChildren/ScreenChildrenPattern";
+import ScreenProgressbar from "@/screens/ScreenProgressbar/ScreenProgressbar";
+import ScreenMemoization from "@/screens/ScreenMemoization/ScreenMemoization";
 
 export default function RouteManager() {
 	return (
@@ -19,8 +23,27 @@ export default function RouteManager() {
 					<Route path={Routes.SCREEN_INPUT} element={<ScreenInput />} />
 					<Route path={Routes.SCREEN_DIALOG} element={<ScreenDialog />} />
 					<Route path={Routes.SCREEN_POPOVER} element={<ScreenPopover />} />
-					<Route path={Routes.SCREEN_NESTED_FOLDER} element={<ScreenNestedFolder />} />
+					<Route
+						path={Routes.SCREEN_NESTED_FOLDER}
+						element={<ScreenNestedFolder />}
+					/>
 					<Route path={Routes.SCREEN_PROPS} element={<ScreenPropsDemo />} />
+					<Route
+						path={Routes.SCREEN_RENDER_PROP_PATTERN}
+						element={<ScreenRenderPropPattern />}
+					/>
+					<Route
+						path={Routes.SCREEN_CHILDREN_PROP_PATTERN}
+						element={<ScreenChildrenPattern />}
+					/>
+					<Route
+						path={Routes.SCREEN_PROGRESSBAR}
+						element={<ScreenProgressbar />}
+					/>
+					<Route
+						path={Routes.SCREEN_MEMOIZATION}
+						element={<ScreenMemoization />}
+					/>
 				</Route>
 			</ReactRooutes>
 		</BrowserRouter>
