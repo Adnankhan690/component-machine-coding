@@ -11,6 +11,7 @@ const Routes = {
     SCREEN_CHILDREN_PROP_PATTERN: '/children-prop-pattern',
     SCREEN_PROGRESSBAR: '/progressbar',
     SCREEN_MEMOIZATION: '/memoization',
+    SCREEN_TIMER: '/timer',
 };
 
 export default Routes;

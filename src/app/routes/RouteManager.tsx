@@ -12,6 +12,7 @@ import ScreenRenderPropPattern from "@/screens/ScreenRenderPropPattern/ScreenRen
 import ScreenChildrenPattern from "@/screens/ScreenChildren/ScreenChildrenPattern";
 import ScreenProgressbar from "@/screens/ScreenProgressbar/ScreenProgressbar";
 import ScreenMemoization from "@/screens/ScreenMemoization/ScreenMemoization";
+import ScreenTimer from "@/screens/ScreenTimer/ScreenTimer";
 
 export default function RouteManager() {
 	return (
@@ -43,6 +44,10 @@ export default function RouteManager() {
 					<Route
 						path={Routes.SCREEN_MEMOIZATION}
 						element={<ScreenMemoization />}
+					/>
+					<Route
+						path={Routes.SCREEN_TIMER}
+						element={<ScreenTimer />}
 					/>
 				</Route>
 			</ReactRooutes>

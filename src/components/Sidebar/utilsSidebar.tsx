@@ -12,5 +12,6 @@ export const sidebar = [
     { name: "Children Prop Pattern", path: Routes.SCREEN_CHILDREN_PROP_PATTERN, id: "childrenPropPattern" },
     { name: "Progressbar", path: Routes.SCREEN_PROGRESSBAR, id: "progressbar" },
     { name: "Memoization", path: Routes.SCREEN_MEMOIZATION, id: "memoization" },
+    { name: "Timer", path: Routes.SCREEN_TIMER, id: "timer" },
     
 ]

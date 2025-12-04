@@ -1,5 +1,5 @@
 import { useNavigate, Outlet, Link } from "react-router-dom";
-import { sidebar } from "./constants";
+import { sidebar } from "./utilsSidebar";
 import "./sidebar.css";
 import Routes from "@/app/routes/Routes";
 
