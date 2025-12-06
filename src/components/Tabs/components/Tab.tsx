@@ -4,7 +4,7 @@ import "./tab.css";
 interface TabProps {
 	label: string;
 	id: string;
-	index: number;
+	index: number; 
 	isActive?: boolean;
 	handleTabChange: (tabIndex: number) => void; //make it curried function
 }

@@ -7,7 +7,7 @@ function DefaultFallback() {
 	return <div className="tab-loading">Loading...</div>;
 }
 
-function Tabs({
+function Tabs({ 
 	tabs = [],
 	keepMounted = true,
 	fallback = <DefaultFallback />,

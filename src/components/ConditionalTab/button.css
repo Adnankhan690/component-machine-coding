@@ -1,0 +1,4 @@
+button[data-selected="true"] {
+  background-color: #007bff;
+  color: white;
+}
