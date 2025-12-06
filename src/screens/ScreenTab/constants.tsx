@@ -34,15 +34,21 @@ export const conditionalTabs: ConditionalTabs[] = [
 export const optimisedTabs: OptimisedTabs[] = [
 	{
 		id: "1",
-		label: "Tab B",
-		component: <ComponentB />,
-		// component: React.lazy(() => import("./components/ComponentB/ComponentB")),
+		label: "Tab A",
+		component: React.lazy(() =>
+			import("./components/componentA/ComponentA")
+		),
+		// Alternatively, you can use a regular component or JSX element
+		// component: ComponentA,
+		// OR
+		// component: function ComponentA() {
+		// 	return <div>Optimised Tab A Content</div>;
+		// },
 	},
 	{
 		id: "2",
-		label: "Tab A",
-		component: ComponentA,
-		keepMounted: true,
+		label: "Tab B",
+		component: <ComponentB />,
 	},
 	{
 		id: "3",

@@ -7,9 +7,24 @@ interface OptimisedTabsProps {
 	initialActiveTab?: number;
 }
 
+
+// | Feature                               | Your Code | Real Lazy Loading           |
+// | ------------------------------------- | --------- | --------------------------- |
+// | Loads code only when needed           | ❌         | ✔                           |
+// | Reduces JS bundle size                | ❌         | ✔                           |
+// | Uses React.lazy + Suspense            | ❌         | ✔                           |
+// | Prevents unvisited tabs from mounting | ✔         | ✔ (but with true lazy load) |
+// | Keeps mounted components alive        | ✔         | Optional                    |
+
+// This optimised Tabs is not lazy-loading instead it is lazy-mounting
+// This is a better approach than normal Tabs(Conditonal mounting) because it avoids unnecessary mounting of unvisited tabs
+// However, it does not reduce the JS bundle size as real lazy loading would do
+
+
 export default function OptimisedTabs({
 	tabs,
-	initialActiveTab = 2,
+    initialActiveTab = 0,
+    
 }: OptimisedTabsProps) {
 	const [activeTab, setActiveTab] = useState(initialActiveTab);
 	const renderedTabs = useRef(new Set<number>()).current;
@@ -19,7 +34,9 @@ export default function OptimisedTabs({
 	const handleTabChange = (index: number) => {
 		setActiveTab(index);
 		renderedTabs.add(index);
-	};
+    };
+    
+    
 
 	// Add initial tab to rendered set -> This does not harm but its conceptually wrong❌
 	renderedTabs.add(initialActiveTab);
@@ -40,7 +57,9 @@ export default function OptimisedTabs({
 			return null;
 		}
 
-		const TabPanel = tab.component;
+        const TabPanel = tab.component;
+        console.log(TabPanel);
+        
 
 		if (typeof TabPanel === "function") {
 			const Component = TabPanel as React.ComponentType;

@@ -32,5 +32,4 @@ export interface OptimisedTabs {
 	component:
 		| React.LazyExoticComponent<React.ComponentType<any>>
 		| React.ComponentType | React.ReactNode;
-	keepMounted?: boolean;
 }
