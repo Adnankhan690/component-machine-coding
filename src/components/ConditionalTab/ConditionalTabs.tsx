@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { ConditionalTabs } from "../Tabs/types";
 import Button, { ButtonProps } from "./Button";
+import { OptimisedTabs } from "../OptimisedTabs/types";
 
 interface ConditionalTabProp {
-	tabs: ConditionalTabs[];
+	tabs: OptimisedTabs[];
 }
 
 export default function ConditionalTab({ tabs }: ConditionalTabProp) {

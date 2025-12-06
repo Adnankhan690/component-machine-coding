@@ -35,11 +35,7 @@ export const optimisedTabs: OptimisedTabs[] = [
 	{
 		id: "1",
 		label: "Tab A",
-		component: React.lazy(() =>
-			import("./components/componentA/ComponentA")
-		),
-		// Alternatively, you can use a regular component or JSX element
-		// component: ComponentA,
+		component: ComponentA,
 		// OR
 		// component: function ComponentA() {
 		// 	return <div>Optimised Tab A Content</div>;

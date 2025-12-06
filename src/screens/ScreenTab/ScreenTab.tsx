@@ -1,7 +1,6 @@
 import ConditionalTab from "@/components/ConditionalTab/ConditionalTabs";
-import Tabs from "../../components/Tabs";
 import { conditionalTabs, optimisedTabs, tabs } from "./constants";
-import OptimisedTabs from "@/components/PracticeTab/OptimisedTabs";
+import OptimisedTabs from "@/components/OptimisedTabs/OptimisedTabs";
 import ComponentA from "./components/componentA/ComponentA";
 import React, { Suspense } from "react";
 
@@ -14,6 +13,7 @@ function ScreenTab() {
 
 			<hr />
 
+			{/* Non optimised Conditional Tabs: */}
 			{/* <ConditionalTab tabs={conditionalTabs} /> */}
 
 			{/* Custom lazy loading with optimised tab component: */}

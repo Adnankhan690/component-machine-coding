@@ -1,0 +1,14 @@
+button[data-active="true"]{
+    background-color: #007bff;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 8px;
+    border: none;
+}
+button {
+    background-color: #f0f0f0;
+    color: black;
+    padding: 4px 12px;
+    border-radius: 8px;
+    border: none;
+}
