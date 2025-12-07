@@ -12,3 +12,7 @@ button {
     border-radius: 8px;
     border: none;
 }
+button:hover {
+    background-color: #dcdcdc;
+    cursor: pointer;
+}
