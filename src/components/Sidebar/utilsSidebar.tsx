@@ -13,5 +13,6 @@ export const sidebar = [
     { name: "Progressbar", path: Routes.SCREEN_PROGRESSBAR, id: "progressbar" },
     { name: "Memoization", path: Routes.SCREEN_MEMOIZATION, id: "memoization" },
     { name: "Timer", path: Routes.SCREEN_TIMER, id: "timer" },
+    { name: "Star Rating", path: Routes.SCREEN_STAR_RATING, id: "starRating" },
     
 ]

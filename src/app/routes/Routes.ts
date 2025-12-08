@@ -12,6 +12,7 @@ const Routes = {
     SCREEN_PROGRESSBAR: '/progressbar',
     SCREEN_MEMOIZATION: '/memoization',
     SCREEN_TIMER: '/timer',
+    SCREEN_STAR_RATING: '/star-rating',
 };
 
 export default Routes;

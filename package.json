@@ -13,7 +13,7 @@
 		"clean": "rm -rf dist node_modules/.vite",
 		"dev:host": "vite --host",
 		"build:watch": "vite build --watch",
-		"run:scripts" : "node script.ts"
+		"run:scripts": "node script.ts"
 	},
 	"dependencies": {
 		"history": "^5.3.0",
