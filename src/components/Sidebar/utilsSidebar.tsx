@@ -14,5 +14,6 @@ export const sidebar = [
     { name: "Memoization", path: Routes.SCREEN_MEMOIZATION, id: "memoization" },
     { name: "Timer", path: Routes.SCREEN_TIMER, id: "timer" },
     { name: "Star Rating", path: Routes.SCREEN_STAR_RATING, id: "starRating" },
+    { name: "Accordian", path: Routes.SCREEN_ACCORDIAN, id: "accordian" },
     
 ]

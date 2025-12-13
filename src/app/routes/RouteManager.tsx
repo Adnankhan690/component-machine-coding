@@ -14,6 +14,7 @@ import ScreenProgressbar from "@/screens/ScreenProgressbar/ScreenProgressbar";
 import ScreenMemoization from "@/screens/ScreenMemoization/ScreenMemoization";
 import ScreenTimer from "@/screens/ScreenTimer/ScreenTimer";
 import StartRating from "@/screens/ScreenStartRating/ScreenStartRating";
+import ScreenAccordian from "@/screens/ScreenAccordian/ScreenAccordian";
 
 export default function RouteManager() {
 	return (
@@ -48,6 +49,10 @@ export default function RouteManager() {
 					/>
 					<Route path={Routes.SCREEN_TIMER} element={<ScreenTimer />} />
 					<Route path={Routes.SCREEN_STAR_RATING} element={<StartRating />} />
+					<Route
+						path={Routes.SCREEN_ACCORDIAN}
+						element={<ScreenAccordian />}
+					/>
 				</Route>
 			</ReactRooutes>
 		</BrowserRouter>

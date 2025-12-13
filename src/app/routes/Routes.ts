@@ -13,6 +13,7 @@ const Routes = {
     SCREEN_MEMOIZATION: '/memoization',
     SCREEN_TIMER: '/timer',
     SCREEN_STAR_RATING: '/star-rating',
+    SCREEN_ACCORDIAN: '/accordian',
 };
 
 export default Routes;
