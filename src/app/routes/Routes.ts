@@ -14,6 +14,7 @@ const Routes = {
     SCREEN_TIMER: '/timer',
     SCREEN_STAR_RATING: '/star-rating',
     SCREEN_ACCORDIAN: '/accordian',
+    SCREEN_GRID_LIGHTS: '/grid-lights',
 };
 
 export default Routes;
