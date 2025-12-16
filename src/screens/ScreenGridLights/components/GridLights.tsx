@@ -9,8 +9,10 @@ const grid = [
 
 export default function GridLights() {
 	const [selectedCell, setSelectedCell] = useState(new Map());
+	const [disabledGrid, setDisabledGrid] = useState(false);
 
-	const handleClick = (cellKey: string) => {
+	const handleClick = (cellKey: string, isOn: boolean) => {
+		if (!isOn || disabledGrid) return;
 		const newSelectedCell = new Map(selectedCell);
 		if (!newSelectedCell.has(cellKey)) {
 			newSelectedCell.set(cellKey, true);
@@ -22,6 +24,7 @@ export default function GridLights() {
 			.filter((cell) => cell === 1).length;
 
 		if (actualActiveCellCount === newSelectedCell.size) {
+			setDisabledGrid(true);
 			const keysArray = Array.from(newSelectedCell.keys());
 			keysArray.forEach((key, index) => {
 				setTimeout(() => {
@@ -36,11 +39,13 @@ export default function GridLights() {
 	};
 
 	useEffect(() => {
-		console.log(selectedCell);
-	}, [selectedCell]);
+		if (selectedCell.size === 0) {
+			setDisabledGrid(false);
+		}
+	}, [selectedCell.size]);
 
 	return (
-		<div className="grid-container">
+        <div className={`grid-container ${disabledGrid ? "disabled-grid" : ""}`}>
 			{grid.map((row, index) => {
 				return (
 					<div key={index} className="grid-col">
@@ -55,7 +60,7 @@ export default function GridLights() {
 							return (
 								<div
 									key={`${index}-${colIndex}`}
-									onClick={() => handleClick(cellKey)}
+									onClick={() => handleClick(cellKey, isOn)}
 									data-on={isOn}
 									className={`grid-cell ${activeCell}`}></div>
 							);

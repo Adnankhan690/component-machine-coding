@@ -6,6 +6,11 @@
     width: 400px;
     height: 400px;
 }
+.disabled-grid {
+    pointer-events: none;
+    opacity: 0.9;
+}
+
 .grid-col {
     display: flex;
     border: 1px solid white;
