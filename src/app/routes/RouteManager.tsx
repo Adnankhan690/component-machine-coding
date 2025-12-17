@@ -16,6 +16,7 @@ import ScreenTimer from "@/screens/ScreenTimer/ScreenTimer";
 import StartRating from "@/screens/ScreenStartRating/ScreenStartRating";
 import ScreenAccordian from "@/screens/ScreenAccordian/ScreenAccordian";
 import ScreenGridLights from "@/screens/ScreenGridLights/ScreenGridLights";
+import ScreenTheme from "@/screens/ScreenTheme/ScreenTheme";
 
 export default function RouteManager() {
 	return (
@@ -58,6 +59,7 @@ export default function RouteManager() {
 						path={Routes.SCREEN_GRID_LIGHTS}
 						element={<ScreenGridLights />}
 					/>
+					<Route path={Routes.SCREEN_THEME} element={<ScreenTheme />} />
 				</Route>
 			</ReactRooutes>
 		</BrowserRouter>

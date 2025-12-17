@@ -5,11 +5,11 @@
 }
 
 .sidebar {
-	border-right: 1px solid #000000;
+	border-right: 1px solid var(--border-color);
 	height: 100vh;
 	width: 250px;
 	flex-shrink: 0;
-	background-color: #ffffff;
+	background-color: var(--bg-color);
 }
 
 .main-content {
@@ -20,19 +20,19 @@
 }
 
 .sidebar-item {
-	border: 1px solid #000000;
+	border: 1px solid var(--border-color);
 	padding: 10px;
 	margin: 5px;
 	cursor: pointer;
-	background-color: #f0f0f0;
+	background-color: var(--bg-color);
 	transition: background-color 0.2s;
 }
 
 .sidebar-item:hover {
-	background-color: #e0e0e0;
+	background-color: var(--bg-color);
 }
 
 .navbar {
-	border: 1px solid black;
+	border: 1px solid var(--border-color);
 	margin: 0;
 }

@@ -16,5 +16,6 @@ export const sidebar = [
     { name: "Star Rating", path: Routes.SCREEN_STAR_RATING, id: "starRating" },
     { name: "Accordian", path: Routes.SCREEN_ACCORDIAN, id: "accordian" },
     { name: "Grid Lights", path: Routes.SCREEN_GRID_LIGHTS, id: "gridLights" },
+    { name: "Theme", path: Routes.SCREEN_THEME, id: "theme" },
     
 ]

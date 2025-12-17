@@ -1,11 +1,14 @@
 import "./App.css";
 import RouteManager from "./app/routes/RouteManager";
+import { ThemeProvider } from "./contexts/ThemeProvider";
 
 function App() {
 	return (
-		<div className="app">
-			<RouteManager />
-		</div>
+		<ThemeProvider>
+			<div className="app">
+				<RouteManager />
+			</div>
+		</ThemeProvider>
 	);
 }
 
