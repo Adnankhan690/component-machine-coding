@@ -1,0 +1,53 @@
+.folder-con {
+    margin-left: 16px;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+}
+
+.nested-folder {
+    border: 1px solid var(--border-color)
+}
+
+.name-icon-con {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.control-icon-con {
+    display: flex;
+    gap: 4px;
+}
+
+.folder-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.add-folder {
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 10px;
+
+    &:hover {
+        background-color: darkgreen;
+    }
+}
+
+.delete-folder {
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 10px;
+
+    &:hover {
+        background-color: darkred;
+    }
+}

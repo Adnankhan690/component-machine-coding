@@ -18,12 +18,14 @@ import {
 	nestedData,
 	nestedFolderDataType,
 } from "@/components/NestedFolder/Data/nestedFolderData";
-import NestedFolder from "@/components/NestedFolder/NestedFolder";
+// import NestedFolder from "@/components/NestedFolder/NestedFolder";
 import {
 	loadFromStorage,
 	NESTED_KEY,
 	saveToStorage,
 } from "@/utils/utilsStorage";
+
+import NestedFolder from "./components/NestedFolder";
 import { useEffect, useRef, useState } from "react";
 
 
@@ -94,8 +96,9 @@ export default function ScreenNestedFolder() {
 			/> */}
 
 			<button onClick={handleClick}>+</button>
-
 			{counter}
+
+			<NestedFolder />
 		</div>
 	);
 }
