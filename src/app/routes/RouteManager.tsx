@@ -18,6 +18,7 @@ import ScreenAccordian from "@/screens/ScreenAccordian/ScreenAccordian";
 import ScreenGridLights from "@/screens/ScreenGridLights/ScreenGridLights";
 import ScreenTheme from "@/screens/ScreenTheme/ScreenTheme";
 import ScreenTrafficLight from "@/screens/ScreenTrafficLight/ScreenTrafficLight";
+import ScreenAnimationFrame from "@/screens/ScreenAnimationFrame/ScreenAnimationFrame";
 
 export default function RouteManager() {
 	return (
@@ -52,16 +53,20 @@ export default function RouteManager() {
 					/>
 					<Route path={Routes.SCREEN_TIMER} element={<ScreenTimer />} />
 					<Route path={Routes.SCREEN_STAR_RATING} element={<StartRating />} />
-					<Route
-						path={Routes.SCREEN_ACCORDIAN}
-						element={<ScreenAccordian />}
-					/>
+					<Route path={Routes.SCREEN_ACCORDIAN} element={<ScreenAccordian />} />
 					<Route
 						path={Routes.SCREEN_GRID_LIGHTS}
 						element={<ScreenGridLights />}
 					/>
 					<Route path={Routes.SCREEN_THEME} element={<ScreenTheme />} />
-					<Route path={Routes.SCREEN_TRAFFIC_LIGHT} element={<ScreenTrafficLight />} />
+					<Route
+						path={Routes.SCREEN_TRAFFIC_LIGHT}
+						element={<ScreenTrafficLight />}
+					/>
+					<Route
+						path={Routes.SCREEN_RAF}
+						element={<ScreenAnimationFrame />}
+					/>
 				</Route>
 			</ReactRooutes>
 		</BrowserRouter>
