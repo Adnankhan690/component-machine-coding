@@ -1,0 +1,23 @@
+.traffic-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid white;
+    color: white;
+    background-color: rgb(57, 52, 52);
+    width: 100px;
+    height: 400px;
+    margin: auto;
+    gap: 4px;
+    padding: 10px;
+}
+
+.traffic {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 100%;
+}
