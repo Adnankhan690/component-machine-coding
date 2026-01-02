@@ -17,7 +17,7 @@ export default function ScreenTrafficLight() {
 
 	useEffect(() => {
 		const activeCell = traffic.find((item) => item.color === activeLight);
-
+ 
         if (!activeCell) return;
         
 		const timer = setTimeout(() => {
