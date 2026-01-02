@@ -16,6 +16,8 @@ const Routes = {
     SCREEN_ACCORDIAN: '/accordian',
     SCREEN_GRID_LIGHTS: '/grid-lights',
     SCREEN_THEME: '/theme',
+    SCREEN_TRAFFIC_LIGHT: '/traffic-light',
+    SCREEN_RAF: '/request-animation-frame',
 };
 
 export default Routes;

@@ -17,5 +17,7 @@ export const sidebar = [
     { name: "Accordian", path: Routes.SCREEN_ACCORDIAN, id: "accordian" },
     { name: "Grid Lights", path: Routes.SCREEN_GRID_LIGHTS, id: "gridLights" },
     { name: "Theme", path: Routes.SCREEN_THEME, id: "theme" },
+    { name: "Traffic Light", path: Routes.SCREEN_TRAFFIC_LIGHT, id: "trafficLight" },
+    { name: "Request Animation Frame", path: Routes.SCREEN_RAF, id: "requestAnimationFrame" },
     
 ]
