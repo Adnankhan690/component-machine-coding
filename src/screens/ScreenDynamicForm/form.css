@@ -1,0 +1,9 @@
+.form-con {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;  
+}
+.error {
+    color: red;
+    font-size: 0.875rem;
+}
