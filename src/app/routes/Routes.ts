@@ -18,6 +18,8 @@ const Routes = {
     SCREEN_THEME: '/theme',
     SCREEN_TRAFFIC_LIGHT: '/traffic-light',
     SCREEN_RAF: '/request-animation-frame',
+    SCREEN_FORM: '/form',
+    SCREEN_DYNAMIC_FORM: '/dynamic-form',
 };
 
 export default Routes;

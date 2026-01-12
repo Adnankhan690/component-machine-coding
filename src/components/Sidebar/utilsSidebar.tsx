@@ -19,5 +19,7 @@ export const sidebar = [
     { name: "Theme", path: Routes.SCREEN_THEME, id: "theme" },
     { name: "Traffic Light", path: Routes.SCREEN_TRAFFIC_LIGHT, id: "trafficLight" },
     { name: "Request Animation Frame", path: Routes.SCREEN_RAF, id: "requestAnimationFrame" },
+    { name: "Form", path: Routes.SCREEN_FORM, id: "form" },
+    { name: "Dynamic Form", path: Routes.SCREEN_DYNAMIC_FORM, id: "dynamicForm" },
     
 ]

@@ -19,6 +19,8 @@ import ScreenGridLights from "@/screens/ScreenGridLights/ScreenGridLights";
 import ScreenTheme from "@/screens/ScreenTheme/ScreenTheme";
 import ScreenTrafficLight from "@/screens/ScreenTrafficLight/ScreenTrafficLight";
 import ScreenAnimationFrame from "@/screens/ScreenAnimationFrame/ScreenAnimationFrame";
+import ScreenForm from "@/screens/ScreenForm/ScreenForm";
+import ScreenDynamicForm from "@/screens/ScreenDynamicForm/ScreenDynamicForm";
 
 export default function RouteManager() {
 	return (
@@ -63,9 +65,11 @@ export default function RouteManager() {
 						path={Routes.SCREEN_TRAFFIC_LIGHT}
 						element={<ScreenTrafficLight />}
 					/>
+					<Route path={Routes.SCREEN_RAF} element={<ScreenAnimationFrame />} />
+					<Route path={Routes.SCREEN_FORM} element={<ScreenForm />} />
 					<Route
-						path={Routes.SCREEN_RAF}
-						element={<ScreenAnimationFrame />}
+						path={Routes.SCREEN_DYNAMIC_FORM}
+						element={<ScreenDynamicForm />}
 					/>
 				</Route>
 			</ReactRooutes>
