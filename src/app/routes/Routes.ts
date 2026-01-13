@@ -20,6 +20,7 @@ const Routes = {
     SCREEN_RAF: '/request-animation-frame',
     SCREEN_FORM: '/form',
     SCREEN_DYNAMIC_FORM: '/dynamic-form',
+    SCREEN_COMPOUND_PATTERN: '/compound-pattern',
 };
 
 export default Routes;

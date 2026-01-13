@@ -21,5 +21,6 @@ export const sidebar = [
     { name: "Request Animation Frame", path: Routes.SCREEN_RAF, id: "requestAnimationFrame" },
     { name: "Form", path: Routes.SCREEN_FORM, id: "form" },
     { name: "Dynamic Form", path: Routes.SCREEN_DYNAMIC_FORM, id: "dynamicForm" },
+    { name: "Compound Pattern", path: Routes.SCREEN_COMPOUND_PATTERN, id: "compoundPattern" },
     
 ]
