@@ -42,14 +42,3 @@ export default function TextInput({
 		</div>
 	);
 }
-
-
-type Fn = (this: any, arg: string | number) => unknown;
-
-export default function memoize(func: Fn): Fn {
-	let parameter: string | number = "";
-
-    return function expensiveFunction(this, arg) {
-        
-    };
-}
