@@ -62,3 +62,34 @@ sol: 	// Map account_type_id to KYC level
 		2: 'KYC 1',
 	};
 	const accountType = account_type_id ? ACCOUNT_TYPE_MAP[Number(account_type_id)] ?? null : null;
+
+
+5. ❌ Don’t set state in cleanup
+
+This is a serious React anti-pattern:
+
+ useEffect(() => {
+    fn()
+      .then((result) => {
+        setStatusObj({ status: "success", data: result });
+      })
+      .catch((error) => {
+        setStatusObj({ status: "error", error });
+      });
+
+	//This is the issue
+    return () => {
+      setStatusObj({
+        status: "loading",
+      });
+    };
+ }, [])
+
+Cleanup runs:
+	- on unmount
+	- before the effect re-runs
+
+Setting state during cleanup can cause:
+	- memory leaks
+	- React warnings
+    - unexpected rerenders
