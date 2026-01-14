@@ -1,4 +1,4 @@
-import { useCard } from "../context/CardProvider";
+import { useCard } from "../../context/CardProvider";
 
 export default function CardBaseLine() {
     const { circles } = useCard();
