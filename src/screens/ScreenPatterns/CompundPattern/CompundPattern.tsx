@@ -1,12 +1,60 @@
 // https://www.youtube.com/watch?v=X9-zNGYVz_0
-import CardBaseLine from "./components/CardBaseLine";
-import CardDescription from "./components/CardDescription";
-import CardSubmit from "./components/CardSubmit";
-import CardTitle from "./components/CardTitle";
+import CardTitle from "./components/Card/CardTitle";
+import CardBaseLine from "./components/Card/CardBaseLine";
+import CardDescription from "./components/Card/CardDescription";
+import CardSubmit from "./components/Card/CardSubmit";
 import "./compund.css";
 import CardProvider from "./context/CardProvider";
+import Select, { OptionType } from "./components/Select/Select";
+import SelectOption from "./components/Select/SelectOption";
+import { useState } from "react";
+
+const selectOption: OptionType[] = [
+	{
+		label: "Volvo",
+		value: "volvo",
+	},
+	{
+		label: "Bmw",
+		value: "bmw",
+	},
+	{
+		label: "Audi",
+		value: "audi",
+	},
+	{
+		label: "Mercedes-Benz",
+		value: "mercedes",
+	},
+	{
+		label: "Toyota",
+		value: "toyota",
+	},
+	{
+		label: "Honda",
+		value: "honda",
+	},
+	{
+		label: "Ford",
+		value: "ford",
+	},
+	{
+		label: "Hyundai",
+		value: "hyundai",
+	},
+	{
+		label: "Kia",
+		value: "kia",
+	},
+	{
+		label: "Tesla",
+		value: "tesla",
+	},
+];
 
 export default function CompundPattern() {
+	const [car, setCar] = useState("");
+
 	return (
 		<div>
 			This Card is made using compund pattern and using context provider to
@@ -19,6 +67,15 @@ export default function CompundPattern() {
 					<CardSubmit />
 				</div>
 			</CardProvider>
+			<div>
+				<Select handleOnChange={(value) => setCar(value)} label="custom select">
+					{selectOption.map((option) => {
+						return <SelectOption option={option}>{option.label}</SelectOption>;
+					})}
+				</Select>
+
+				<strong>selected car: {car}</strong>
+			</div>
 		</div>
 	);
 }
