@@ -8,6 +8,10 @@ import CardProvider from "./context/CardProvider";
 import Select, { OptionType } from "./components/Select/Select";
 import SelectOption from "./components/Select/SelectOption";
 import { useState } from "react";
+import TabList from "./components/Tab/TabList";
+import TabTrigger from "./components/Tab/TabTrigger";
+import TabContent from "./components/Tab/TabContent";
+import Tab from "./components/Tab/Tab";
 
 const selectOption: OptionType[] = [
 	{
@@ -67,7 +71,8 @@ export default function CompundPattern() {
 					<CardSubmit />
 				</div>
 			</CardProvider>
-			<div>
+			{/* Select using compund pattern  */}
+			{/* <div>
 				<Select handleOnChange={(value) => setCar(value)} label="custom select">
 					{selectOption.map((option) => {
 						return <SelectOption option={option}>{option.label}</SelectOption>;
@@ -75,6 +80,20 @@ export default function CompundPattern() {
 				</Select>
 
 				<strong>selected car: {car}</strong>
+			</div> */}
+			{/* Tab using compund pattern  */}
+			<div>
+				<Tab>
+					<TabList>
+						<TabTrigger defaultTab value="profile">
+							profile
+						</TabTrigger>
+						<TabTrigger value="settings">settings</TabTrigger>
+					</TabList>
+
+					<TabContent value="profile">Profile info</TabContent>
+					<TabContent value="settings">Settings form</TabContent>
+				</Tab>
 			</div>
 		</div>
 	);

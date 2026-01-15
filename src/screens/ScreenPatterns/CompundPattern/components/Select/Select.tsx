@@ -26,7 +26,7 @@ export default function Select({
 	return (
 		<div>
 			<label htmlFor="select">{label}</label>
-			<select onChange={handleCarChange} name="select" id="select">
+			<select onChange={handleCarChange} name="select" id="select" multiple={true}>
 				{children}
 			</select>
 

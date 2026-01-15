@@ -1,11 +1,10 @@
-import React from "react";
 import Tab, {
 	ConditionalTabs,
-	OptimisedTabs,
 } from "../../components/Tabs/types";
 import ComponentA from "./components/componentA/ComponentA";
 import ComponentB from "./components/ComponentB/ComponentB";
 import ComponentC from "./components/componentC/ComponentC";
+import { OptimisedTabs } from "@/components/OptimisedTabs/types";
 
 export const tabs: Tab[] = [
 	{ id: "1", label: "Tab 1", component: ComponentA },
