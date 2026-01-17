@@ -1,0 +1,119 @@
+.tab-container {
+	width: 100%;
+	max-width: 600px;
+	margin: 2rem auto;
+	background: rgba(255, 255, 255, 0.05);
+	backdrop-filter: blur(10px);
+	border-radius: 16px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	overflow: hidden;
+	color: #fff;
+	font-family:
+		"Inter",
+		system-ui,
+		-apple-system,
+		sans-serif;
+}
+
+.tab-list {
+	display: flex;
+	background: rgba(0, 0, 0, 0.2);
+	padding: 8px;
+	gap: 8px;
+}
+
+.tab-trigger {
+	flex: 1;
+	padding: 12px 24px;
+	border: none;
+	background: transparent;
+	color: rgba(255, 255, 255, 0.6);
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 0.9rem;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	border-radius: 8px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.tab-trigger:hover {
+	color: #fff;
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-trigger.active {
+	color: #fff;
+	background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+	box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.tab-content {
+	padding: 24px;
+	animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.content-header {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-weight: 700;
+}
+
+.content-body {
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.profile-card {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding: 16px;
+	background: rgba(255, 255, 255, 0.03);
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.avatar {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	background: linear-gradient(45deg, #4f46e5, #ec4899);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.form-group {
+	margin-bottom: 1rem;
+}
+
+.form-label {
+	display: block;
+	font-size: 0.8rem;
+	color: rgba(255, 255, 255, 0.5);
+	margin-bottom: 4px;
+}
+
+.form-value {
+	font-weight: 500;
+	color: #fff;
+}
