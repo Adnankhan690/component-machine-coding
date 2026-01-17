@@ -1,5 +1,5 @@
-import { createContext, useContext } from "react";
-import { useAccordian } from "../../context/AccordianProvider";
+import { createContext, useContext, useEffect } from "react";
+import { useAccordian } from "./Accordian";
 
 interface AccordianItemProps {
 	children: React.ReactNode;
@@ -28,27 +28,44 @@ export default function AccordianItem({ children, value }: AccordianItemProps) {
 
 export function AccordianHeader({ children }: { children: React.ReactNode }) {
 	const { value } = useItem();
-	const { activeAccordian, setActiveAccordian } = useAccordian();
+	const { activeAccordian, setActiveAccordian, variant } = useAccordian();
+
+	useEffect(() => {
+		console.log(activeAccordian);
+	}, [activeAccordian]);
 
 	const handleToggle = () => {
-		setActiveAccordian(activeAccordian === value ? "" : value);
+		setActiveAccordian((prev) => {
+			if (variant === "single" && typeof prev === "string") return value;
+			if (Array.isArray(prev) && prev.includes(value))
+				return prev.filter((item) => item !== value);
+			return [...prev, value];
+		});
 	};
 
 	return (
 		<div
-			className={`accordian-header ${activeAccordian === value ? "active" : ""}`}
+			className={`accordian-header ${activeAccordian.includes(value) ? "active" : ""}`}
 			onClick={handleToggle}>
 			{children}
-			<span className="icon">{activeAccordian === value ? "−" : "+"}</span>
+			<span className="icon">
+				{activeAccordian.includes(value) ? "−" : "+"}
+			</span>
 		</div>
 	);
 }
 
 export function AccordianContent({ children }: { children: React.ReactNode }) {
 	const { value } = useItem();
-	const { activeAccordian } = useAccordian();
+	const { activeAccordian, variant } = useAccordian();
 
-	if (activeAccordian !== value) return null;
+	if (variant === "single" && typeof activeAccordian === "string" && activeAccordian !== value) return null;
+	if (
+		variant === "multiple" &&
+		Array.isArray(activeAccordian) &&
+		!activeAccordian.includes(value)
+	)
+		return null;
 
 	return <div className="accordian-content">{children}</div>;
 }

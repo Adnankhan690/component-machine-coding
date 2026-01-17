@@ -1,18 +1,53 @@
-import AccordianProvider from "../../context/AccordianProvider";
 import AccordianItem, {
 	AccordianContent,
 	AccordianHeader,
 } from "./AccordianItem";
 
-interface AccordianProps {
-	children: React.ReactNode;
+import { createContext, SetStateAction, useContext, useState } from "react";
+
+type AccordianVariant = "single" | "multiple";
+
+interface AccordianContext {
+	activeAccordian: string[] | string;
+	setActiveAccordian: React.Dispatch<SetStateAction<string[] | string>>;
+	variant: AccordianVariant;
 }
 
-export default function Accordian({ children }: AccordianProps) {
+const AccordianContext = createContext<AccordianContext | null>(null);
+
+export function useAccordian() {
+	const context = useContext(AccordianContext);
+
+	if (!context) {
+		throw new Error("useAccordian must be used within a AccordianProvider");
+	}
+
+	return context;
+}
+
+interface AccordianProps {
+	children: React.ReactNode;
+	variant?: AccordianVariant;
+}
+
+const VariantMapper = {
+	single: "",
+	multiple: [],
+};
+
+export default function Accordian({
+	children,
+	variant = "multiple",
+}: AccordianProps) {
+	const [activeAccordian, setActiveAccordian] = useState<string[] | string>(
+		VariantMapper[variant],
+	);
+
 	return (
-		<AccordianProvider>
+		<AccordianContext.Provider
+			value={{ activeAccordian, setActiveAccordian, variant }}>
 			<div>{children}</div>
-		</AccordianProvider>
+		</AccordianContext.Provider>
 	);
 }
 

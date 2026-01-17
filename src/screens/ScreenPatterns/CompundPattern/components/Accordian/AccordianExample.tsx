@@ -4,7 +4,7 @@ import "./Accordian.css";
 export default function AccordianExample() {
 	return (
 		<div className="accordian-container">
-			<Accordian>
+			<Accordian variant="multiple">
 				<Accordian.Item value="faq1">
 					<Accordian.Header>What is the Compound Pattern?</Accordian.Header>
 					<Accordian.Content>
