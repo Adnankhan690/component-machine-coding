@@ -1,0 +1,71 @@
+/* Accordian.css */
+.accordian-container {
+	width: 100%;
+	max-width: 600px;
+	margin: 2rem auto;
+	background: rgba(255, 255, 255, 0.05);
+	backdrop-filter: blur(10px);
+	border-radius: 16px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	overflow: hidden;
+	color: #fff;
+	font-family:
+		"Inter",
+		system-ui,
+		-apple-system,
+		sans-serif;
+}
+
+.accordian-item {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.accordian-item:last-child {
+	border-bottom: none;
+}
+
+.accordian-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.25rem 1.5rem;
+	cursor: pointer;
+	font-weight: 600;
+	transition: background 0.3s ease;
+	user-select: none;
+}
+
+.accordian-header:hover {
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.accordian-header.active {
+	color: #fbbf24;
+	background: rgba(251, 191, 36, 0.05);
+}
+
+.accordian-header .icon {
+	font-size: 1.2rem;
+	transition: transform 0.3s ease;
+}
+
+.accordian-content {
+	padding: 1.25rem 1.5rem;
+	background: rgba(255, 255, 255, 0.02);
+	color: rgba(255, 255, 255, 0.7);
+	line-height: 1.6;
+	font-size: 0.95rem;
+	animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

@@ -5,16 +5,14 @@ export default function CardDescription() {
 
 	return (
 		<div className="strength">
-			<p>
-				<strong>Strength:</strong>
-				<div className="strength-content">
-					<ul>
-						{strength.map((item, idx) => {
-							return <li key={idx}>{item}</li>;
-						})}
-					</ul>
-				</div>
-			</p>
+			<span className="strength-label">Strength:</span>
+			<div className="strength-content">
+				<ul>
+					{strength.map((item, idx) => {
+						return <li key={idx}>{item}</li>;
+					})}
+				</ul>
+			</div>
 		</div>
 	);
 }

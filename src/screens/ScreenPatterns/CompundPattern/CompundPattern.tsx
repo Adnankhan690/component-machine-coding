@@ -8,10 +8,9 @@ import CardProvider from "./context/CardProvider";
 import Select, { OptionType } from "./components/Select/Select";
 import SelectOption from "./components/Select/SelectOption";
 import { useState } from "react";
-import TabList from "./components/Tab/TabList";
-import TabTrigger from "./components/Tab/TabTrigger";
-import TabContent from "./components/Tab/TabContent";
 import Tab from "./components/Tab/Tab";
+import TabExample from "./components/Tab/TabExample";
+import AccordianExample from "./components/Accordian/AccordianExample";
 
 const selectOption: OptionType[] = [
 	{
@@ -60,7 +59,7 @@ export default function CompundPattern() {
 	const [car, setCar] = useState("");
 
 	return (
-		<div>
+		<div className="container">
 			This Card is made using compund pattern and using context provider to
 			achieve high re-usability
 			<CardProvider>
@@ -71,6 +70,7 @@ export default function CompundPattern() {
 					<CardSubmit />
 				</div>
 			</CardProvider>
+
 			{/* Select using compund pattern  */}
 			{/* <div>
 				<Select handleOnChange={(value) => setCar(value)} label="custom select">
@@ -83,17 +83,11 @@ export default function CompundPattern() {
 			</div> */}
 			{/* Tab using compund pattern  */}
 			<div>
-				<Tab>
-					<TabList>
-						<TabTrigger defaultTab value="profile">
-							profile
-						</TabTrigger>
-						<TabTrigger value="settings">settings</TabTrigger>
-					</TabList>
+				<TabExample />
+			</div>
 
-					<TabContent value="profile">Profile info</TabContent>
-					<TabContent value="settings">Settings form</TabContent>
-				</Tab>
+			<div>
+				<AccordianExample />
 			</div>
 		</div>
 	);
@@ -139,3 +133,6 @@ export default function CompundPattern() {
 // 		</div>
 // 	);
 // }
+
+
+

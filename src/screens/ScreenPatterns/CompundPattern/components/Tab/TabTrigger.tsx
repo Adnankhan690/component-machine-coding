@@ -5,10 +5,14 @@ export default function TabTrigger({
 	children,
 	value,
 	defaultTab,
+	className,
+	activeClassName,
 }: {
 	children: React.ReactNode;
 	value: string;
 	defaultTab?: boolean;
+	className?: string;
+	activeClassName?: string;
 }) {
 	const { activeTab, setActiveTab } = useTab();
 	const handleClick = () => {
@@ -21,9 +25,13 @@ export default function TabTrigger({
 		}
 	}, [defaultTab]);
 
+	const isActive = activeTab === value;
+
 	return (
-		<div>
-			<button onClick={handleClick}>{children}</button>
-		</div>
+		<button
+			className={`${className} ${isActive ? activeClassName : ""}`}
+			onClick={handleClick}>
+			{children}
+		</button>
 	);
 }
