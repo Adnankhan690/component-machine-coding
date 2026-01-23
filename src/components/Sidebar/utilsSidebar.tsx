@@ -22,5 +22,6 @@ export const sidebar = [
     { name: "Form", path: Routes.SCREEN_FORM, id: "form" },
     { name: "Dynamic Form", path: Routes.SCREEN_DYNAMIC_FORM, id: "dynamicForm" },
     { name: "Compound Pattern", path: Routes.SCREEN_COMPOUND_PATTERN, id: "compoundPattern" },
+    { name: "Recursion", path: Routes.SCREEN_RECURSION, id: "recursion" },
     
 ]
