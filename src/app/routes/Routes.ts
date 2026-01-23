@@ -21,6 +21,7 @@ const Routes = {
     SCREEN_FORM: '/form',
     SCREEN_DYNAMIC_FORM: '/dynamic-form',
     SCREEN_COMPOUND_PATTERN: '/compound-pattern',
+    SCREEN_RECURSION: '/recursion',
 };
 
 export default Routes;

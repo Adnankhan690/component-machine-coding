@@ -22,6 +22,7 @@ import ScreenAnimationFrame from "@/screens/ScreenAnimationFrame/ScreenAnimation
 import ScreenForm from "@/screens/ScreenForm/ScreenForm";
 import ScreenDynamicForm from "@/screens/ScreenDynamicForm/ScreenDynamicForm";
 import CompundPattern from "@/screens/ScreenPatterns/CompundPattern/CompundPattern";
+import ScreenRecursion from "@/screens/ScreenRecursion/ScreenRecursion";
 
 export default function RouteManager() {
 	return (
@@ -75,6 +76,10 @@ export default function RouteManager() {
 					<Route
 						path={Routes.SCREEN_COMPOUND_PATTERN}
 						element={<CompundPattern />}
+					/>
+					<Route
+						path={Routes.SCREEN_RECURSION}
+						element={<ScreenRecursion />}
 					/>
 				</Route>
 			</ReactRooutes>
