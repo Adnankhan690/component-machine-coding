@@ -1,0 +1,13 @@
+.comment-container {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+/* Apply nesting styles only to nested containers, not the root */
+.comment-container .comment-container {
+	margin-left: 24px;
+	padding-left: 24px;
+	border-left: 2px solid var(--border-color);
+	margin-top: 12px;
+}

@@ -8,17 +8,25 @@
 } */
 
 .light {
-	--bg-color: #ffffff;
-	--text-color: #000000;
-	--border-color: #cccccc;
-	--hover-bg: #e0e0e0;
+	--bg-color: #f3f4f6; /* slightly gray background for light mode */
+	--text-color: #111827;
+	--border-color: #e5e7eb;
+	--hover-bg: #e5e7eb;
+	--card-bg: #ffffff;
+	--shadow-color: rgba(0, 0, 0, 0.05);
+	--primary-color: #3b82f6;
+	--danger-color: #ef4444;
 }
 
 .dark {
-	--bg-color: #121212;
-	--text-color: #ffffff;
-	--border-color: #333333;
-	--hover-bg: #2a2a2a;
+	--bg-color: #0d0d0d;
+	--text-color: #f9fafb;
+	--border-color: #374151;
+	--hover-bg: #374151;
+	--card-bg: #1f2937;
+	--shadow-color: rgba(0, 0, 0, 0.4);
+	--primary-color: #60a5fa;
+	--danger-color: #f87171;
 }
 
 .app {
@@ -27,11 +35,11 @@
 }
 
 .dark {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+	background-color: var(--bg-color);
+	color: var(--text-color);
 }
 
 .light {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+	background-color: var(--bg-color);
+	color: var(--text-color);
 }

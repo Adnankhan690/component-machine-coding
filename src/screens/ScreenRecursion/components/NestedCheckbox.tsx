@@ -46,17 +46,6 @@ export default function NestedCheckbox() {
 			// 	});
 			// }
 
-			function cascade(nodes: Config[], value: boolean): Config[] {
-				return nodes.map((node) => {
-					if (node.children && node.children.length > 0) {
-						return { ...node, children: cascade(node.children, value) };
-					}
-					return {
-						...node,
-						value,
-					};
-				});
-			}
 
 			function updateTree(
 				nodes: Config[],
