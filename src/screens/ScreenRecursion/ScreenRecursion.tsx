@@ -7,7 +7,7 @@ export default function ScreenRecursion() {
 			<div>
 				Recursion
 				<NestedCheckbox />
-				{/* <NestedComments /> */}
+				<NestedComments />
 			</div>
 		);
 }

@@ -1,12 +1,12 @@
 .comment-con {
-	background: var(--comment-bg);
-	border: 1px solid var(--border-color);
+	background: #eff6ff;
+	border: 1px solid #374151;
 	border-radius: 12px;
 	padding: 16px;
 	margin-bottom: 12px;
 	box-shadow:
-		0 4px 6px -1px var(--shadow-color),
-		0 2px 4px -1px var(--shadow-color);
+		0 4px 6px -1px rgba(0, 0, 0, 0.4),
+		0 2px 4px -1px rgba(0, 0, 0, 0.4);
 	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	display: flex;
 	flex-direction: column;
@@ -16,13 +16,13 @@
 .comment-con:hover {
 	transform: translateY(-2px);
 	box-shadow:
-		0 10px 15px -3px var(--shadow-color),
-		0 4px 6px -2px var(--shadow-color);
-	border-color: var(--primary-color);
+		0 10px 15px -3px rgba(0, 0, 0, 0.4),
+		0 4px 6px -2px rgba(0, 0, 0, 0.4);
+	border-color: #3b82f6;
 }
 
 .comment-con strong {
-	color: var(--text-color);
+	color: #1f2937;
 	font-size: 15px;
 	line-height: 1.6;
 	letter-spacing: 0.01em;
@@ -37,9 +37,9 @@
 
 input[type="text"] {
 	flex: 1;
-	background: var(--bg-color);
-	border: 1px solid var(--border-color);
-	color: var(--text-color);
+	background: #ffffff;
+	border: 1px solid #d1d5db;
+	color: #1f2937;
 	padding: 8px 12px;
 	border-radius: 6px;
 	font-size: 14px;
@@ -48,7 +48,7 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-	border-color: var(--primary-color);
+	border-color: #3b82f6;
 }
 
 .comment-con button {
@@ -69,28 +69,29 @@ input[type="text"]:focus {
 }
 
 .add-btn-con {
-	background: var(--primary-color);
+	background: #3b82f6;
 	color: white;
 }
 
 .add-btn-con:hover {
-	filter: brightness(1.1);
-	box-shadow: 0 2px 4px var(--shadow-color);
+	/* filter: brightness(1.1); */
+	box-shadow: 0 2px 4px rgba(171, 7, 200, 0.1);
 }
 
 .cancel-btn {
 	background: transparent;
-	color: var(--text-color);
-	border: 1px solid var(--border-color) !important;
+	color: #4b5563;
+	border: 1px solid #d1d5db !important;
 }
 
 .cancel-btn:hover {
-	background: var(--hover-bg);
+	background: #f3f4f6;
+	color: #111827;
 }
 
 .delete-btn {
 	background: transparent;
-	color: var(--danger-color);
+	color: #ef4444;
 	opacity: 0.8;
 	padding: 8px 12px !important;
 }
@@ -104,7 +105,7 @@ input[type="text"]:focus {
 	padding: 8px !important;
 	border: none;
 	background: transparent;
-	color: #666;
+	color: #6b7280;
 	display: flex;
 	align-items: center;
 	justify-content: center;
