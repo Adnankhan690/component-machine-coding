@@ -1,6 +1,6 @@
 import "./nested-checkbox-container.css";
-import { Config } from "../constants";
 import CheckBox from "./CheckBox";
+import { Config } from "./constants";
 
 interface CheboxContainerProps {
 	config: Config[];

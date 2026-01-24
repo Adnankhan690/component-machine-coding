@@ -1,5 +1,5 @@
 .comment-con {
-	background: var(--card-bg);
+	background: var(--comment-bg);
 	border: 1px solid var(--border-color);
 	border-radius: 12px;
 	padding: 16px;

@@ -13,6 +13,7 @@
 	--border-color: #e5e7eb;
 	--hover-bg: #e5e7eb;
 	--card-bg: #ffffff;
+	--comment-bg: #eff6ff; /* Light blue tint for better visibility */
 	--shadow-color: rgba(0, 0, 0, 0.05);
 	--primary-color: #3b82f6;
 	--danger-color: #ef4444;
@@ -24,6 +25,7 @@
 	--border-color: #374151;
 	--hover-bg: #374151;
 	--card-bg: #1f2937;
+	--comment-bg: #1c1c1e; /* Darker, sleek Apple-style dark gray */
 	--shadow-color: rgba(0, 0, 0, 0.4);
 	--primary-color: #60a5fa;
 	--danger-color: #f87171;

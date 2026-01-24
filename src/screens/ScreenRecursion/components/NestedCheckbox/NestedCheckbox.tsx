@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Config, config as CheckboxConfig } from "../constants";
+import { Config, config as CheckboxConfig } from "./constants";
 import CheboxContainer from "./CheboxContainer";
+
 
 // https://chatgpt.com/c/696fba9a-116c-8320-920f-60e61dc86278
 // give last-2 prompts a read
