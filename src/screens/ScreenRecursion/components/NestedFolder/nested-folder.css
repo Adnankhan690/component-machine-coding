@@ -1,8 +1,31 @@
-.nested-folderr {
-    padding-left: 8px;
-}
 .nested-folder-con {
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
+	display: flex;
+	flex-direction: column;
+	width: 300px; /* Or 100% depending on parent */
+	font-family:
+		"Inter",
+		-apple-system,
+		BlinkMacSystemFont,
+		"Segoe UI",
+		Roboto,
+		sans-serif;
+	background-color: #1e1e1e; /* Dark theme bg */
+	padding: 10px;
+	border-radius: 8px;
+	color: #fff;
+}
+
+.nested-folderr {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Recursive container style */
+.nested-folderr .nested-folder-con {
+	padding: 0;
+	margin-left: 21px; /* indentation width */
+	border-left: 1px solid #333; /* Indentation guide line */
+	background-color: transparent;
+	width: auto;
+	border-radius: 0;
 }

@@ -1,19 +1,77 @@
-.name-icon-con {
-    display: flex;
-    align-items: center;
+.folder-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 4px 8px;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: background-color 0.15s ease;
+	user-select: none;
+	color: #e5e7eb; /* Light gray text */
+	font-size: 14px;
 }
 
-.collapse-btn {
-    padding: 0px;
-    background-color: transparent;
-    border: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.folder-row:hover {
+	background-color: #2d2d2d;
+}
+
+.left-section {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	flex: 1;
+	overflow: hidden;
+}
+
+.chevron-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	color: #9ca3af;
+}
+
+.spacer {
+	width: 20px;
+}
+
+.type-icon {
+	display: flex;
+	align-items: center;
+}
+
+.folder-name {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.folder-actions {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	opacity: 0;
+	transition: opacity 0.15s ease;
+}
+
+.folder-row:hover .folder-actions {
+	opacity: 1;
 }
 
 .action-btn {
-    padding: 4px;
-    border: 0px;
-    background-color: transparent;
+	padding: 4px;
+	border: none;
+	background: transparent;
+	color: #9ca3af;
+	border-radius: 4px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.action-btn:hover {
+	background-color: #3e3e3e;
+	color: #fff;
 }
