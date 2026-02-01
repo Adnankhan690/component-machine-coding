@@ -1,5 +1,6 @@
 import Accordian from "./components/Accordian";
 
+// random text
 export default function ScreenAccordian() {
     return (
         <div>
