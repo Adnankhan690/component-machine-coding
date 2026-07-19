@@ -7,5 +7,6 @@ export const sidebar = [
     { name: "Dialog", path: Routes.SCREEN_DIALOG, id: "dialog" },
     { name: "Popover", path: Routes.SCREEN_POPOVER, id: "popover" },
     { name: "Nested Folder", path: Routes.SCREEN_NESTED_FOLDER, id: "nestedFolder" },
-    
+    { name: "Todo List", path: Routes.SCREEN_TODO, id: "todo" },
+    { name: "Counter", path: Routes.SCREEN_COUNTER, id: "counter" },
 ]

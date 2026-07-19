@@ -6,6 +6,8 @@ const Routes = {
     SCREEN_DIALOG: '/dialog',
     SCREEN_POPOVER: '/popover',
     SCREEN_NESTED_FOLDER: '/nested-folder',
+    SCREEN_TODO: '/todo',
+    SCREEN_COUNTER: '/counter',
 };
 
 export default Routes;

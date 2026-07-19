@@ -7,6 +7,8 @@ import ScreenInput from "@/screens/ScreenInput/ScreenInput";
 import ScreenDialog from "@/screens/ScreenDialog/ScreenDialog";
 import ScreenPopover from "@/screens/ScreenPopover/ScreenPopover";
 import ScreenNestedFolder from "@/screens/NestedFolder/ScreenNestedFolder";
+import ScreenTodo from "@/screens/ScreenTodo/ScreenTodo";
+import ScreenCounter from "@/screens/ScreenCounter/ScreenCounter";
 
 export default function RouteManager() {
 	return (
@@ -19,6 +21,8 @@ export default function RouteManager() {
 					<Route path={Routes.SCREEN_DIALOG} element={<ScreenDialog />} />
 					<Route path={Routes.SCREEN_POPOVER} element={<ScreenPopover />} />
 					<Route path={Routes.SCREEN_NESTED_FOLDER} element={<ScreenNestedFolder />} />
+					<Route path={Routes.SCREEN_TODO} element={<ScreenTodo />} />
+					<Route path={Routes.SCREEN_COUNTER} element={<ScreenCounter />} />
 				</Route>
 			</ReactRooutes>
 		</BrowserRouter>

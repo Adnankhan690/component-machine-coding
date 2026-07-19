@@ -1,0 +1,30 @@
+.todo-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+.un-strike {
+    text-decoration: none;
+    color: black;
+}
+
+.todo-list-wrapper {
+    display: flex;
+}
+
+.todo-item {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+
+    & input {
+        border: 1px solid grey;
+        height: 20px;
+        border-radius: 4px
+    }
+}
