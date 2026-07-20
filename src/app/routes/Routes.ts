@@ -8,6 +8,7 @@ const Routes = {
     SCREEN_NESTED_FOLDER: '/nested-folder',
     SCREEN_TODO: '/todo',
     SCREEN_COUNTER: '/counter',
+    SCREEN_STOPWATCH: '/stopwatch',
 };
 
 export default Routes;
