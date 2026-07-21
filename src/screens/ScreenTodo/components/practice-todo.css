@@ -1,0 +1,25 @@
+.todo-control-wrapper {
+    display: flex;
+    /* justify-content: center; */
+    gap: 4px;
+}
+
+.todo-action-btns {
+    display: flex;
+    gap:4px;
+    align-items: center;
+
+    & button {
+        height: 20px;
+        /* width: 40px; */
+        border-radius: 4px;
+        border: 1px solid gray;
+        background-color: white;
+        cursor: pointer;
+    }
+}
+
+.todo-list-wrapper {
+    display: flex;
+    gap: 12px;
+}
