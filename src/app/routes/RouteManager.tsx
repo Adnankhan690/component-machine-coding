@@ -10,6 +10,8 @@ import ScreenNestedFolder from "@/screens/NestedFolder/ScreenNestedFolder";
 import ScreenTodo from "@/screens/ScreenTodo/ScreenTodo";
 import ScreenCounter from "@/screens/ScreenCounter/ScreenCounter";
 import StopWatch from "@/screens/StopWatch/stop-watch";
+import Timer from "@/screens/timer/timer";
+import DigitalClock from "@/screens/digitalClock/DigitalClock";
 
 export default function RouteManager() {
 	return (
@@ -25,6 +27,8 @@ export default function RouteManager() {
 					<Route path={Routes.SCREEN_TODO} element={<ScreenTodo />} />
 					<Route path={Routes.SCREEN_COUNTER} element={<ScreenCounter />} />
 					<Route path={Routes.SCREEN_STOPWATCH} element={<StopWatch />} />
+					<Route path={Routes.SCREEN_TIMER} element={<Timer />} />
+					<Route path={Routes.SCREEN_DIGITAL_CLOCK} element={<DigitalClock />} />
 				</Route>
 			</ReactRooutes>
 		</BrowserRouter>

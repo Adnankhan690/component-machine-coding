@@ -9,6 +9,8 @@ const Routes = {
     SCREEN_TODO: '/todo',
     SCREEN_COUNTER: '/counter',
     SCREEN_STOPWATCH: '/stopwatch',
+    SCREEN_TIMER: '/timer',
+    SCREEN_DIGITAL_CLOCK: '/digital-clock',
 };
 
 export default Routes;

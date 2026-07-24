@@ -10,4 +10,6 @@ export const sidebar = [
     { name: "Todo List", path: Routes.SCREEN_TODO, id: "todo" },
     { name: "Counter", path: Routes.SCREEN_COUNTER, id: "counter" },
     { name: "StopWatch", path: Routes.SCREEN_STOPWATCH, id: "stopwatch" },
+    { name: "Timer", path: Routes.SCREEN_TIMER, id: "timer" },
+    { name: "Digital Clock", path: Routes.SCREEN_DIGITAL_CLOCK, id: "digitalclock" },
 ]
