@@ -12,6 +12,8 @@ import ScreenCounter from "@/screens/ScreenCounter/ScreenCounter";
 import StopWatch from "@/screens/StopWatch/stop-watch";
 import Timer from "@/screens/timer/timer";
 import DigitalClock from "@/screens/digitalClock/DigitalClock";
+import Otp from "@/screens/Otp/Otp";
+import ScreenPagination from "@/screens/pagination/ScreenPagination";
 
 export default function RouteManager() {
 	return (
@@ -29,6 +31,8 @@ export default function RouteManager() {
 					<Route path={Routes.SCREEN_STOPWATCH} element={<StopWatch />} />
 					<Route path={Routes.SCREEN_TIMER} element={<Timer />} />
 					<Route path={Routes.SCREEN_DIGITAL_CLOCK} element={<DigitalClock />} />
+					<Route path={Routes.SCREEN_OTP} element={<Otp />} />
+					<Route path={Routes.SCREEN_PAGINATION} element={<ScreenPagination />} />
 				</Route>
 			</ReactRooutes>
 		</BrowserRouter>

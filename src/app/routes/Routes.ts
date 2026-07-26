@@ -11,6 +11,8 @@ const Routes = {
     SCREEN_STOPWATCH: '/stopwatch',
     SCREEN_TIMER: '/timer',
     SCREEN_DIGITAL_CLOCK: '/digital-clock',
+    SCREEN_OTP: '/otp',
+    SCREEN_PAGINATION: '/pagination',
 };
 
 export default Routes;

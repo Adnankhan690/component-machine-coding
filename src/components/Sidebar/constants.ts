@@ -12,4 +12,6 @@ export const sidebar = [
     { name: "StopWatch", path: Routes.SCREEN_STOPWATCH, id: "stopwatch" },
     { name: "Timer", path: Routes.SCREEN_TIMER, id: "timer" },
     { name: "Digital Clock", path: Routes.SCREEN_DIGITAL_CLOCK, id: "digitalclock" },
+    { name: "OTP", path: Routes.SCREEN_OTP, id: "otp" },
+    { name: "Pagination", path: Routes.SCREEN_PAGINATION, id: "pagination" },
 ]
