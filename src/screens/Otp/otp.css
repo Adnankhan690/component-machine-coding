@@ -1,0 +1,17 @@
+.input-wrapper {
+    display: flex;
+    gap:4px;
+
+    & input {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        text-align: center;
+        font-size: 18px;
+    }
+}
+
+.disabled {
+    
+}
