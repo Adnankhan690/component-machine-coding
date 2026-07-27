@@ -1,3 +1,6 @@
+//todo
+//error case , 
+// pasting values like this '1fg34'
 import { useRef, useState, useEffect } from "react";
 
 export default function useOtp() {
@@ -16,6 +19,7 @@ export default function useOtp() {
         newDisabledInput[idx + 1] = false;
         setDisabledInput(newDisabledInput);
 
+        //it is done so that state is udpated 1st then focus is moved
         setTimeout(() => {
             otpInputRef.current?.[idx + 1]?.focus();
         }, 0)
@@ -38,6 +42,26 @@ export default function useOtp() {
         }
     }
 
+    const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+        const paste = e.clipboardData.getData("Text").slice(0, 6);
+        e.preventDefault();
+        const pasteOtp = paste.split("");
+        const newOtp = [...otp];
+        const newDisabledInput = [...disabledInput];
+
+        pasteOtp.forEach((val, idx) => {
+            newOtp[idx] = val;
+            newDisabledInput[idx + 1] = false;
+        });
+        setOtp(newOtp);
+        setDisabledInput(newDisabledInput);
+
+        const targetIndex = Math.min(paste.length, 5);
+        setTimeout(() => {
+            otpInputRef.current[targetIndex]?.focus();
+        }, 0)
+    }
+
     useEffect(() => {
         otpInputRef.current[0]?.focus();
     }, [])
@@ -48,6 +72,7 @@ export default function useOtp() {
         otpInputRef,
         handleKeyDown,
         disabledInput,
+        handlePaste,
 
     }
 }

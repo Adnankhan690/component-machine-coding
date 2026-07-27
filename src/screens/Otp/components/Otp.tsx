@@ -7,7 +7,8 @@ export default function OTP() {
         handleInput,
         otpInputRef,
         handleKeyDown,
-        disabledInput
+        disabledInput,
+        handlePaste,
     } = useOtp();
 
     return (
@@ -24,6 +25,7 @@ export default function OTP() {
                                 value={val}
                                 ref={(e) => { otpInputRef.current[idx] = e as HTMLInputElement }}
                                 onKeyDown={(e) => { handleKeyDown(e, idx) }}
+                                onPaste={(e) => handlePaste(e)}
                             />
                         </div>
                     )
