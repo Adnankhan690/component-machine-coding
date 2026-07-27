@@ -14,4 +14,6 @@ export const sidebar = [
     { name: "Digital Clock", path: Routes.SCREEN_DIGITAL_CLOCK, id: "digitalclock" },
     { name: "OTP", path: Routes.SCREEN_OTP, id: "otp" },
     { name: "Pagination", path: Routes.SCREEN_PAGINATION, id: "pagination" },
+    { name: "Accordion", path: Routes.SCREEN_ACCORDIAN, id: "accordion" },
+    { name: "tabV2", path: Routes.SCREEN_TAB_V2, id: "tabV2" },
 ]

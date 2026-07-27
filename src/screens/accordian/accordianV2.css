@@ -1,0 +1,52 @@
+.title-btn-con-v2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & button {
+        width: 32px;
+        height: 32px;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
+}
+
+.card-con-v2 {
+    border: 1px solid black;
+    width: 70%;
+    padding: 12px;
+}
+
+.accordian-con-v2 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.accordian-list-v2 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Slider Animation using CSS Grid transition */
+.accordion-content-v2 {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-out;
+    overflow: hidden;
+}
+
+.accordion-content-v2.open {
+    grid-template-rows: 1fr;
+}
+
+.accordion-inner-v2 {
+    min-height: 0;
+}
+
+.description-v2 {
+    margin-top: 10px;
+    line-height: 1.5;
+}

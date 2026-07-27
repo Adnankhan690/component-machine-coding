@@ -1,0 +1,23 @@
+.title-btn-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & button {
+        width: 32px;
+        height: 32px;
+    }
+    
+}
+
+.card-con {
+    border: 1px solid black;
+    width: 70%;
+    padding: 12px;
+}
+
+.accordian-con {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}

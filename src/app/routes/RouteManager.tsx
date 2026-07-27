@@ -14,6 +14,8 @@ import Timer from "@/screens/timer/timer";
 import DigitalClock from "@/screens/digitalClock/DigitalClock";
 import Otp from "@/screens/Otp/Otp";
 import ScreenPagination from "@/screens/pagination/ScreenPagination";
+import ScreenAccordian from "@/screens/accordian/ScreenAccordian";
+import ScreenTabV2 from "@/screens/tab/ScreenTab";
 
 export default function RouteManager() {
 	return (
@@ -33,6 +35,8 @@ export default function RouteManager() {
 					<Route path={Routes.SCREEN_DIGITAL_CLOCK} element={<DigitalClock />} />
 					<Route path={Routes.SCREEN_OTP} element={<Otp />} />
 					<Route path={Routes.SCREEN_PAGINATION} element={<ScreenPagination />} />
+					<Route path={Routes.SCREEN_ACCORDIAN} element={<ScreenAccordian />} />
+					<Route path={Routes.SCREEN_TAB_V2} element={<ScreenTabV2 />} />
 				</Route>
 			</ReactRooutes>
 		</BrowserRouter>
