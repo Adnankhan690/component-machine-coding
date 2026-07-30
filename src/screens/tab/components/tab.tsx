@@ -2,7 +2,8 @@ import useTab, { tabData } from "../hooks/useTab";
 import "../tabV1.css";
 
 export default function Tab() {
-    const { activeTab, handleTabClick, activeTabContent } = useTab();
+    const { handleTabClick, activeTabContent } = useTab();
+
     return (
         <div>
             <div className="tab-btn-con">
