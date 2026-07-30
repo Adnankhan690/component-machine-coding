@@ -62,7 +62,6 @@ export default function useOTPV2() {
         setTimeout(() => {
             otpRef.current[minLen]?.focus();
         }, 0)
-        //123456
     }
 
     return {
