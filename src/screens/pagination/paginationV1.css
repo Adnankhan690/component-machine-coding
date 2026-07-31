@@ -1,0 +1,23 @@
+.control-wrapper {
+    display: flex;
+    gap: 12px;
+    margin: 12px;
+
+}
+
+.page-controller {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+
+    & button {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.page-view {
+    display: flex;
+    padding: 0 12px 0 12px;
+    margin: 0px;
+}
