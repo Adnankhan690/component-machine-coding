@@ -1,4 +1,4 @@
-import Pagination from "./components/pagination";
+// import Pagination from "./components/pagination";
 import PaginationV1 from "./components/paginationV1";
 
 export default function ScreenPagination() {
