@@ -3,6 +3,14 @@ import { useSearchParams } from "react-router-dom";
 
 const DEFAULT_PAGE_SIZE = 5;
 
+export interface ALBUM {
+    albumId: number;
+    id: number;
+    title: string;
+    url: string;
+    thumbnailUrl: string;
+}
+
 export default function usePaginationV1() {
     const [data, setData] = useState<unknown[]>([]);
     // const [currentPage, setCurrentPage] = useState(1);
