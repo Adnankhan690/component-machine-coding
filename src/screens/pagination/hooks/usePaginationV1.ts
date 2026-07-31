@@ -12,7 +12,7 @@ export interface ALBUM {
 }
 
 export default function usePaginationV1() {
-    const [data, setData] = useState<unknown[]>([]);
+    const [data, setData] = useState<ALBUM[]>([]);
     // const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
     const [searchParams, setSearchParams] = useSearchParams();

@@ -1,4 +1,5 @@
 import "../paginationV1.css";
+import { ALBUM } from "../hooks/usePaginationV1";
 import usePaginationV1 from "../hooks/usePaginationV1";
 
 export default function PaginationV1() {
@@ -30,9 +31,9 @@ export default function PaginationV1() {
                     <button onClick={handleNext} disabled={hasNext}>{'>'}</button>
                 </div>
             </div>
-            {data.map((el) => (
-                <div key={el.title}>
-                    {el.title}
+            {data.map(({ title, albumId }: ALBUM) => (
+                <div key={albumId}>
+                    {title}
                 </div>
             ))}
         </div>
