@@ -25,7 +25,18 @@ export default function ScreenDialog() {
 				*/}
 
 			<button onClick={handleClick}>{openDialog ? "close" : "show"}</button>
-			<DialogV2 show={openDialog} />
+			<DialogV2 show={openDialog}
+				onClose={() => {
+					setOpenDialog(false);
+				}}
+			>
+				<label htmlFor="input">Name: </label>
+				<input id="input" placeholder="Enter" />
+				<button>cancel</button>
+				<p>Hello Andna</p>
+				<button>Save</button>
+				<textarea placeholder="I am text area" />
+			</DialogV2>
 		</div>
 	);
 }

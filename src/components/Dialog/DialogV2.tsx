@@ -18,6 +18,20 @@ export default function DialogV2({
     const [container, setContainer] = useState<HTMLDivElement | null>(null);
     const backdropRef = useRef<HTMLDivElement | null>(null);
     const dialogRef = useRef<HTMLDivElement | null>(null);
+    const closeBtnRef = useRef<HTMLButtonElement | null>(null);
+
+
+    const handleClose = () => {
+        if (backdropRef.current && dialogRef.current) {
+            backdropRef.current.classList.add("close-modal");
+            dialogRef.current.classList.add("close-modal");
+            dialogRef.current.addEventListener("animationend", handleAnimationEnd, { once: true });
+        }
+    }
+
+    const handleAnimationEnd = () => {
+        onClose && onClose();
+    }
 
     useEffect(() => {
         let created = false;
@@ -41,18 +55,51 @@ export default function DialogV2({
         }
     }, [])
 
-    const handleClose = () => {
-        if (backdropRef.current && dialogRef.current) {
-            backdropRef.current.classList.add("close-modal");
-            dialogRef.current.classList.add("close-modal");
-            dialogRef.current.addEventListener("animation-end", handleAnimationEnd, { once: true });
+    //check why focus on btn is missing when the modal is opened
+    useEffect(() => {
+        if (show) {
+            const timer = setTimeout(() => {
+                closeBtnRef.current?.focus();
+            }, 20);
+            return () => clearTimeout(timer);
         }
-    }
+    }, [show]);
 
-    const handleAnimationEnd = () => {
-        onClose && onClose();
-    }
+    useEffect(() => {
+        const focusableSelectors =
+            'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])';
+        const focusableElements =
+            dialogRef.current?.querySelectorAll(focusableSelectors);
+        const firstFocusableElement = focusableElements && focusableElements[0] as HTMLElement;
 
+        const lastFocusableElement =
+            focusableElements && focusableElements[focusableElements.length - 1] as HTMLElement;
+
+        const onKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "Escape" && show) {
+                handleClose();
+            }
+            if (e.key === "Tab") {
+                // Check which element currently has focus
+                const activeElement = document.activeElement;
+
+                if (e.shiftKey && activeElement === firstFocusableElement) {
+                    e.preventDefault();
+                    lastFocusableElement?.focus(); // Wrap around to end
+                } else if (!e.shiftKey && activeElement === lastFocusableElement) {
+                    e.preventDefault();
+                    firstFocusableElement?.focus(); // Wrap around to start
+                }
+            }
+        };
+        
+        document.addEventListener("keydown", onKeyDown);
+        (firstFocusableElement as HTMLElement)?.focus();
+
+        return () => {
+            document.removeEventListener("keydown", onKeyDown);
+        };
+    }, [show]);
 
     if (!container || !show) return null;
 
@@ -60,7 +107,7 @@ export default function DialogV2({
         <>
             <div className="backdrop" ref={backdropRef}>
                 <div className="dialog-container" ref={dialogRef}>
-                    <button onClick={handleClose} className="dialog-close">X</button>
+                    <button ref={closeBtnRef} onClick={handleClose} className="dialog-close">X</button>
                     <div className="children">
                         <p>title</p>
                         <div>
