@@ -33,6 +33,7 @@ export default function DialogV2({
         onClose && onClose();
     }
 
+    //add a root-div for modals using portal
     useEffect(() => {
         let created = false;
 
@@ -55,16 +56,7 @@ export default function DialogV2({
         }
     }, [])
 
-    //check why focus on btn is missing when the modal is opened
-    useEffect(() => {
-        if (show) {
-            const timer = setTimeout(() => {
-                closeBtnRef.current?.focus();
-            }, 20);
-            return () => clearTimeout(timer);
-        }
-    }, [show]);
-
+    //trap-the-focus
     useEffect(() => {
         const focusableSelectors =
             'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])';
@@ -92,7 +84,7 @@ export default function DialogV2({
                 }
             }
         };
-        
+
         document.addEventListener("keydown", onKeyDown);
         (firstFocusableElement as HTMLElement)?.focus();
 
@@ -100,6 +92,7 @@ export default function DialogV2({
             document.removeEventListener("keydown", onKeyDown);
         };
     }, [show]);
+
 
     if (!container || !show) return null;
 

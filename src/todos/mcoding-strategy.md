@@ -14,6 +14,7 @@ These get asked constantly and test the exact skills interviewers care about (st
 - Accordion
 - Tab
 - Modal Popup
+- Popover Component
 - Toast Popup / Toast Notification
 - Star Rating
 - Progress Bar
@@ -34,7 +35,6 @@ These come up often at slightly higher-bar product companies and show you can ha
 - Sortable List
 - Transfer List
 - Light-Dark Theme / Switch
-- Popover Component
 - File Explorer
 - Nested Comments
 - Chips Input
