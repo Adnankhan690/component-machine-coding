@@ -98,7 +98,7 @@ export default function Dialog({
 
 		return () => {
 			document.removeEventListener("keydown", onKeyDown);
-		};
+		}; 
     }, [showModal]);
     
     useEffect(() => {

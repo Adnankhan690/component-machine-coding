@@ -1,4 +1,5 @@
 import Dialog from "@/components/Dialog/Dialog";
+import DialogV2 from "@/components/Dialog/DialogV2";
 import { useState } from "react";
 
 export default function ScreenDialog() {
@@ -10,7 +11,7 @@ export default function ScreenDialog() {
 
 	return (
 		<div>
-			Dialog Demo
+			{/* Dialog Demo
 			<button onClick={handleClick}>{openDialog ? "close" : "show"}</button>
 			<Dialog
 				showModal={openDialog}
@@ -21,6 +22,9 @@ export default function ScreenDialog() {
                 <button>Cancel</button>
                 <button>Submit</button>
 			</Dialog>
+			 */}
+
+			 <DialogV2 />
 		</div>
 	);
 }
