@@ -1,17 +1,17 @@
 .backdrop {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    /* background-color: chocolate; */
-    position: fixed;
+
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     overflow: hidden;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 1px solid black;
-    animation: openDialog 0.3s linear forwards;
+
+    animation: handleOpen 0.3s linear forwards;
 }
 
 .dialog-container {
@@ -20,53 +20,46 @@
     left: 10px;
     max-width: 700px;
     height: 600px;
+    background-color: white;
     border-radius: 12px;
     padding: 8px 12px;
-    background-color: white;
-    animation: openDialog 0.3s linear forwards;
+
+    animation: handleOpen 0.3s linear forwards;
 }
 
 .dialog-close {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
     position: absolute;
-    top: 12px;
+    top: 10px;
     right: 12px;
-    display: flex;;
+    border-radius: 4px;
+    width: 8px;
+    height: 8px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     padding: 8px;
-    background-color: white;
+    border: 1px solid black;
 }
-.dialog-close:hover {
-    background-color: #f0f0f0;
-}
-.dialog-close:focus {
-    outline-color: red;
-  }
 
 .close-modal {
-    animation: closeModal 0.3s linear forwards;
+    animation: handleClose 0.3s linear forwards;
 }
 
-@keyframes openDialog {
+@keyframes handleOpen {
     from {
         opacity: 0;
-
     }
 
     to {
         opacity: 1;
-
     }
 }
 
-@keyframes closeModal {
+@keyframes handleClose {
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
     }

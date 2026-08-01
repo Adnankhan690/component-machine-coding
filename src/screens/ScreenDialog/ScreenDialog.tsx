@@ -14,17 +14,18 @@ export default function ScreenDialog() {
 			{/* Dialog Demo
 			<button onClick={handleClick}>{openDialog ? "close" : "show"}</button>
 			<Dialog
-				showModal={openDialog}
-				onClose={() => {
-					setOpenDialog(false);
+			showModal={openDialog}
+			onClose={() => {
+				setOpenDialog(false);
 				}}>
                 <h1>I am Chldren</h1>
                 <button>Cancel</button>
                 <button>Submit</button>
-			</Dialog>
-			 */}
+				</Dialog>
+				*/}
 
-			 <DialogV2 />
+			<button onClick={handleClick}>{openDialog ? "close" : "show"}</button>
+			<DialogV2 show={openDialog} />
 		</div>
 	);
 }
