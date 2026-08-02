@@ -1,80 +1,85 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 
 interface PopoverContextType {
-	showPopover: boolean;
-	togglePopover: () => void;
-	actionButtonRef: React.RefObject<HTMLButtonElement | null>;
-	contentRef: React.RefObject<HTMLDivElement | null>;
+    showPopover: boolean;
+    togglePopover: () => void;
+    actionButtonRef: React.RefObject<HTMLButtonElement | null>;
+    contentRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const PopoverContext = createContext<PopoverContextType | undefined>(undefined);
 
+// Safe SSR useLayoutEffect fallback
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 export function ProviderPopover({ children }: { children: React.ReactNode }) {
-	const [showPopover, setShowPopover] = useState(false);
-	const [screenHeight, setScreenHeight] = useState(window.innerHeight);
-	const actionButtonRef = useRef<HTMLButtonElement | null>(null);
-	const contentRef = useRef<HTMLDivElement | null>(null);
+    const [showPopover, setShowPopover] = useState(false);
+    const actionButtonRef = useRef<HTMLButtonElement | null>(null);
+    const contentRef = useRef<HTMLDivElement | null>(null);
 
-	function togglePopover() {
-		const newValue = !showPopover;
-		if (newValue && actionButtonRef.current && contentRef.current) {
-			const scrollY = window.scrollY || document.documentElement.scrollTop;
-			const screenHeight = window.innerHeight;
+    const togglePopover = () => {
+        setShowPopover((prev) => !prev);
+    };
 
-			const { top, left, height, bottom } =
-				actionButtonRef.current?.getBoundingClientRect();
+    // Calculate positioning AFTER popover mounts/renders to the DOM
+    useIsomorphicLayoutEffect(() => {
+        if (!showPopover || !actionButtonRef.current || !contentRef.current) return;
 
-			const {
-				top: bTop,
-				left: bLeft,
-				height: bHeight,
-			} = contentRef.current?.getBoundingClientRect();
+        const updatePosition = () => {
+            if (!actionButtonRef.current || !contentRef.current) return;
 
-			// const topAvailableSpace = screenHeight
-			if (top > screenHeight - bottom) {
-				contentRef.current.style = `top: ${
-					top - bHeight - 8
-				}px; left: ${left}px;`;
-				setShowPopover(newValue);
-				return;
-			} else {
-				contentRef.current.style = `top: ${
-					top + height + scrollY + 8
-				}px; left: ${left}px;`;
-			}
-			console.log(bHeight,"hh");
-		}
+            const buttonRect = actionButtonRef.current.getBoundingClientRect();
+            const contentRect = contentRef.current.getBoundingClientRect();
 
-        console.log("sdfs");
-        
-		// const totalHeight
-		setShowPopover(newValue);
-	}
+            const scrollY = window.scrollY || document.documentElement.scrollTop;
+            const scrollX = window.scrollX || document.documentElement.scrollLeft;
+            const viewportHeight = window.innerHeight;
 
-	useEffect(() => {
-		const handleScreenResize = () => {
-			setScreenHeight(window.innerHeight);
-		};
-		window.addEventListener("resize", handleScreenResize);
+            const spaceBelow = viewportHeight - buttonRect.bottom;
+            const spaceAbove = buttonRect.top;
 
-		return () => {
-			window.removeEventListener("resize", handleScreenResize);
-		};
-	}, []);
+            let top: number;
+            
+            // If there's not enough room below AND more room above, flip popover upwards
+            if (spaceBelow < contentRect.height && spaceAbove > spaceBelow) {
+                top = buttonRect.top + scrollY - contentRect.height - 8;
+            } else {
+                top = buttonRect.bottom + scrollY + 8;
+            }
 
-	return (
-		<PopoverContext.Provider
-			value={{ showPopover, togglePopover, actionButtonRef, contentRef }}>
-			{children}
-		</PopoverContext.Provider>
-	);
+            const left = buttonRect.left + scrollX;
+
+            contentRef.current.style.position = "absolute";
+            contentRef.current.style.top = `${top}px`;
+            contentRef.current.style.left = `${left}px`;
+        };
+
+        // Position immediately
+        updatePosition();
+
+        // Reposition on window scroll or resize
+        window.addEventListener("resize", updatePosition);
+        window.addEventListener("scroll", updatePosition, true);
+
+        return () => {
+            window.removeEventListener("resize", updatePosition);
+            window.removeEventListener("scroll", updatePosition, true);
+        };
+    }, [showPopover]);
+
+    return (
+        <PopoverContext.Provider
+            value={{ showPopover, togglePopover, actionButtonRef, contentRef }}>
+            {children}
+        </PopoverContext.Provider>
+    );
 }
 
 export default function usePopoverContext() {
-	const context = useContext(PopoverContext);
-	if (!context) {
-		throw new Error("usePopoverContext must be used within a ProviderPopover");
-	}
+    const context = useContext(PopoverContext);
+    if (!context) {
+        throw new Error("usePopoverContext must be used within a ProviderPopover");
+    }
 
-	return context;
+    return context;
 }
