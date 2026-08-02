@@ -20,7 +20,7 @@ export default function AccordianV3({ data }: AccordianV3Prop) {
 
     return (
         <div className="accordian-con">
-            {data.map(({ title, description, id }, idx) => (
+            {data.map(({ title, description, id }) => (
                 <div key={id} className="accordian-box-wrapper">
                     {/* // title and btn  */}
                     <div className="title-btn-wrapper">
