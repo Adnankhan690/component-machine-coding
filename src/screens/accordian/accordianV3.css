@@ -1,0 +1,32 @@
+.accordian-con {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.accordian-box-wrapper {
+    border: 1px solid black;
+    padding: 8px 24px;
+    border-radius: 8px;
+}
+
+.title-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.desc-con {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-out;
+    overflow: hidden;
+}
+
+.desc-con.open {
+    grid-template-rows: 1fr;
+}
+
+.desc-height {
+    min-height: 0;
+}
