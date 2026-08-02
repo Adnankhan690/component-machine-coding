@@ -59,6 +59,7 @@ export function ProviderPopover({ children }: { children: React.ReactNode }) {
 
         // Reposition on window scroll or resize
         window.addEventListener("resize", updatePosition);
+		//ask why true is added ?
         window.addEventListener("scroll", updatePosition, true);
 
         return () => {
