@@ -20,7 +20,8 @@ export function PopoverAction({
 			<button
 				ref={actionButtonRef}
 				className={className}
-				onClick={togglePopover}>
+				onClick={togglePopover}
+			>
 				{node}
 			</button>
 		);
@@ -31,7 +32,8 @@ export function PopoverAction({
 			<button
 				ref={actionButtonRef}
 				className={className}
-				onClick={togglePopover}>
+				onClick={togglePopover}
+			>
 				{children}
 			</button>
 		);
