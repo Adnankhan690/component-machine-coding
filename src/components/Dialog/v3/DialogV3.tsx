@@ -9,7 +9,7 @@ interface DialogV3Props {
     children?: React.ReactNode,
 }
 
-export default function DialogV3({ children, onClose, onSubmit, show = false }: DialogV3Props) {
+export default function DialogV3({ children, onClose, show = false }: DialogV3Props) {
 
     const [container, setContainer] = useState(true);
     const backdropRef = useRef<HTMLDivElement | null>(null);
