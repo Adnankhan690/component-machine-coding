@@ -50,7 +50,7 @@ export default function DialogV2({
         setContainer(modalRoot);
 
         return () => {
-            if (modalRoot && modalRoot.childNodes.length === 0) {
+            if (created && modalRoot && modalRoot.childNodes.length === 0) {
                 modalRoot.remove();
             }
         }
