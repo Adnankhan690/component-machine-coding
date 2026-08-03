@@ -1,0 +1,64 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: handleOpen 0.3s linear forwards;
+}
+
+
+.modal-container {
+    position: relative;
+    width: 700px;
+    height: 600px;
+    background: white;
+    top: 10px;
+    left: 10px;
+    border-radius: 8px;
+
+    animation: handleOpen 0.3s linear forwards;
+}
+
+.dialog-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    padding: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal {
+    animation: handleClose 0.3s linear forwards;
+}
+
+@keyframes handleOpen {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes handleClose {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
