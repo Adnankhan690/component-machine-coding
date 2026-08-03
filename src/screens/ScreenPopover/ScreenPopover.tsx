@@ -44,6 +44,7 @@ export default function ScreenPopover() {
 			<PopoverV1>
 				<PopoverTriggerV1>
 					<button>Click Me</button>
+					<button>Click Me</button>
 				</PopoverTriggerV1>
 				<PopoverListV1>
 					<PopoverItemV1>Hello there</PopoverItemV1>
