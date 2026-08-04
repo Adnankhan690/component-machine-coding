@@ -12,7 +12,6 @@ interface DialogV2 {
 export default function DialogV2({
     show = false,
     onClose,
-    onSubmit,
     children
 }: DialogV2) {
     const [container, setContainer] = useState<HTMLDivElement | null>(null);
