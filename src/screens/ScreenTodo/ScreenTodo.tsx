@@ -1,4 +1,4 @@
-import Todo from "./components/todo";
+// import Todo from "./components/todo";
 import PracticeTodo from "./components/practice-todo"
 
 export default function ScreenTodo() {
