@@ -1,7 +1,7 @@
-import Popover from "@/components/Popover/Popover";
-import { PopoverAction } from "@/components/Popover/PopoverAction";
-import PopoverList from "@/components/Popover/PopoverList";
-import PopoverMenuItem from "@/components/Popover/PopoverMenuItems";
+// import Popover from "@/components/Popover/Popover";
+// import { PopoverAction } from "@/components/Popover/PopoverAction";
+// import PopoverList from "@/components/Popover/PopoverList";
+// import PopoverMenuItem from "@/components/Popover/PopoverMenuItems";
 import "./ScreenPopover.css"
 import PopoverV1 from "./components/PopoverV1";
 import PopoverListV1 from "./components/PopoverListV1";
