@@ -1,5 +1,5 @@
-import Dialog from "@/components/Dialog/Dialog";
-import DialogV2 from "@/components/Dialog/DialogV2";
+// import Dialog from "@/components/Dialog/Dialog";
+// import DialogV2 from "@/components/Dialog/DialogV2";
 import DialogV3 from "@/components/Dialog/v3/DialogV3";
 import { useState } from "react";
 
