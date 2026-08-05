@@ -54,6 +54,7 @@ export default function ProviderPopover({ children }: { children: React.ReactNod
 
         updatePopover();
 
+        //true is used for a reason
         window.addEventListener("scroll", updatePopover, true);
         window.addEventListener("resize", updatePopover);
 
