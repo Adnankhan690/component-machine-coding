@@ -1,6 +1,9 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useRef, useState } from "react";
 
 interface PopoverProviderType {
+    showPopover: boolean;
+    buttonRef: React.RefObject<HTMLButtonElement | null>;
+    contentRef: React.RefObject<HTMLDivElement | null>;
     onToggle: () => void;
 
 }
@@ -9,19 +12,23 @@ const PopoverContext = createContext<PopoverProviderType | undefined>(undefined)
 
 export default function ProviderPopover({ children }: { children: React.ReactNode }) {
 
-    const onToggle = () => {
+    const [showPopover, setShowPopover] = useState(false);
+    const buttonRef = useRef<HTMLButtonElement | null>(null);
+    const contentRef = useRef<HTMLDivElement | null>(null);
 
+    const onToggle = () => {
+        setShowPopover((prev) => !prev);
     }
 
     return (
-        <PopoverContext.Provider value={{ onToggle }}>
+        <PopoverContext.Provider value={{ onToggle, buttonRef, contentRef, showPopover }}>
             {children}
         </PopoverContext.Provider>
     )
 
 }
 
-export function useProvider() {
+export function usePopoverContext() {
     const context = useContext(PopoverContext);
 
     if (!context) {
