@@ -42,7 +42,8 @@ export default function ProviderPopover({ children }: { children: React.ReactNod
 
             if (spaceAbove > spaceBelow && contentRect.height > spaceBelow) {
                 // top = window.scrollY + window.innerHeight - contentRect.height - 8;
-                top = button.top + scrollY - content.height;
+                // top = btnRect.top + scrollY - content.height;
+                top = scrollY + btnRect.top - contentRect.height;
 
             } else {
                 top = btnRect.bottom + window.scrollY + 8;
