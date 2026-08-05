@@ -31,7 +31,8 @@ export default function ProviderPopover({ children }: { children: React.ReactNod
             const btnRect = buttonRef.current.getBoundingClientRect() as DOMRect;
             const contentRect = contentRef.current.getBoundingClientRect() as DOMRect;
 
-            cosnt scrollX
+            const scrollX = window.scrollX;
+            const scrollY = window.scrollY;
 
             const spaceAbove = btnRect.top;
             const spaceBelow = window.innerHeight - btnRect.bottom;
