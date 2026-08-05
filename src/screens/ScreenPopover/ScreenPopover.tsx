@@ -2,11 +2,15 @@
 // import { PopoverAction } from "@/components/Popover/PopoverAction";
 // import PopoverList from "@/components/Popover/PopoverList";
 // import PopoverMenuItem from "@/components/Popover/PopoverMenuItems";
-import "./ScreenPopover.css"
-import PopoverV1 from "./components/PopoverV1";
-import PopoverListV1 from "./components/PopoverListV1";
-import PopoverTriggerV1 from "./components/PopoverTriggerV1";
-import PopoverItemV1 from "./components/PopoverItemV1";
+// import "./ScreenPopover.css"
+// import PopoverV1 from "./components/PopoverV1";
+// import PopoverListV1 from "./components/PopoverListV1";
+// import PopoverTriggerV1 from "./components/PopoverTriggerV1";
+// import PopoverItemV1 from "./components/PopoverItemV1";
+import Popover from "./componentsV2/Popover";
+import PopoverList from "./componentsV2/PopoverList";
+import PopoverTrigger from "./componentsV2/PopoverTrigger";
+import PopoverItem from "./componentsV2/PopoverItem";
 
 export default function ScreenPopover() {
 	return (
@@ -41,23 +45,23 @@ export default function ScreenPopover() {
 			</Popover> */}
 			<div>adnan</div>
 			<hr />
-			<PopoverV1>
-				<PopoverTriggerV1>
+			<Popover>
+				<PopoverTrigger>
 					<button>Click Me</button>
 					<button>Click Me</button>
-				</PopoverTriggerV1>
-				<PopoverListV1>
-					<PopoverItemV1>Hello there</PopoverItemV1>
-					<PopoverItemV1>Hello there</PopoverItemV1>
-					<PopoverItemV1>Hello there</PopoverItemV1>
-					<PopoverItemV1>Hello there</PopoverItemV1>
-					<PopoverItemV1>Hello there</PopoverItemV1>
-					<PopoverItemV1>Hello there</PopoverItemV1>
-					<PopoverItemV1>Hello there</PopoverItemV1>
-				</PopoverListV1>
+				</PopoverTrigger>
+				<PopoverList>
+					<PopoverItem>Hello there</PopoverItem>
+					<PopoverItem>Hello there</PopoverItem>
+					<PopoverItem>Hello there</PopoverItem>
+					<PopoverItem>Hello there</PopoverItem>
+					<PopoverItem>Hello there</PopoverItem>
+					<PopoverItem>Hello there</PopoverItem>
+					<PopoverItem>Hello there</PopoverItem>
+				</PopoverList>
 				<div>Hello world</div>
 				epsom salSodium Bicarbonate (Soda Ash) and Magnesium Sulphate (Epsom Salt) are not enumerated in Entry-9 of the VI Schedule, which covers dyes and chemicals. A Government Order directs a levy of 8% sales tax on all chemicals not covered under Entry-9. In a similar case, the erstwhile High Court of Judicature, Andhra Pradesh held that any chemical not enumerated in Entry-9 would fall under the Government Order and be taxable at 8% only, irrespective of its usage as a raw material. Consequently, the goods in question are to be taxed at 8% as they are chemicals not covered under Entry-9. The Revision Orders of the Joint Commissioner (CT) (Legal), Office of the Commissioner of Commercial Taxes, A.P, Hyderabad are set aside, and the petition is allowed.epsom salSodium Bicarbonate (Soda Ash) and Magnesium Sulphate (Epsom Salt) are not enumerated in Entry-9 of the VI Schedule, which covers dyes and chemicals. A Government Order directs a levy of 8% sales tax on all chemicals not covered under Entry-9. In a similar case, the erstwhile High Court of Judicature, Andhra Pradesh held that any chemical not enumerated in Entry-9 would fall under the Government Order and be taxable at 8% only, irrespective of its usage as a raw material. Consequently, the goods in question are to be taxed at 8% as they are chemicals not covered under Entry-9. The Revision Orders of the Joint Commissioner (CT) (Legal), Office of the Commissioner of Commercial Taxes, A.P, Hyderabad are set aside, and the petition is allowed.epsom salSodium Bicarbonate (Soda Ash) and Magnesium Sulphate (Epsom Salt) are not enumerated in Entry-9 of the VI Schedule, which covers dyes and chemicals. A Government Order directs a levy of 8% sales tax on all chemicals not covered under Entry-9. In a similar case, the erstwhile High Court of Judicature, Andhra Pradesh held that any chemical not enumerated in Entry-9 would fall under the Government Order and be taxable at 8% only, irrespective of its usage as a raw material. Consequently, the goods in question are to be taxed at 8% as they are chemicals not covered under Entry-9. The Revision Orders of the Joint Commissioner (CT) (Legal), Office of the Commissioner of Commercial Taxes, A.P, Hyderabad are set aside, and the petition is allowed.epsom salSodium Bicarbonate (Soda Ash) and Magnesium Sulphate (Epsom Salt) are not enumerated in Entry-9 of the VI Schedule, which covers dyes and chemicals. A Government Order directs a levy of 8% sales tax on all chemicals not covered under Entry-9. In a similar case, the erstwhile High Court of Judicature, Andhra Pradesh held that any chemical not enumerated in Entry-9 would fall under the Government Order and be taxable at 8% only, irrespective of its usage as a raw material. Consequently, the goods in question are to be taxed at 8% as they are chemicals not covered under Entry-9. The Revision Orders of the Joint Commissioner (CT) (Legal), Office of the Commissioner of Commercial Taxes, A.P, Hyderabad are set aside, and the petition is allowed.epsom salSodium Bicarbonate (Soda Ash) and Magnesium Sulphate (Epsom Salt) are not enumerated in Entry-9 of the VI Schedule, which covers dyes and chemicals. A Government Order directs a levy of 8% sales tax on all chemicals not covered under Entry-9. In a similar case, the erstwhile High Court of Judicature, Andhra Pradesh held that any chemical not enumerated in Entry-9 would fall under the Government Order and be taxable at 8% only, irrespective of its usage as a raw material. Consequently, the goods in question are to be taxed at 8% as they are chemicals not covered under Entry-9. The Revision Orders of the Joint Commissioner (CT) (Legal), Office of the Commissioner of Commercial Taxes, A.P, Hyderabad are set aside, and the petition is allowed.epsom salSodium Bicarbonate (Soda Ash) and Magnesium Sulphate (Epsom Salt) are not enumerated in Entry-9 of the VI Schedule, which covers dyes and chemicals. A Government Order directs a levy of 8% sales tax on all chemicals not covered under Entry-9. In a similar case, the erstwhile High Court of Judicature, Andhra Pradesh held that any chemical not enumerated in Entry-9 would fall under the Government Order and be taxable at 8% only, irrespective of its usage as a raw material. Consequently, the goods in question are to be taxed at 8% as they are chemicals not covered under Entry-9. The Revision Orders of the Joint Commissioner (CT) (Legal), Office of the Commissioner of Commercial Taxes, A.P, Hyderabad are set aside, and the petition is allowed.
-			</PopoverV1>
+			</Popover>
 
 		</div>
 	);
