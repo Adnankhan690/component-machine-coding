@@ -77,7 +77,7 @@ export function usePopoverContext() {
     const context = useContext(PopoverContext);
 
     if (!context) {
-        throw new TypeError('useProvider must be used with PopoverProvider');
+        throw new TypeError('useProvider must be used within PopoverProvider');
     }
 
     return context;
