@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function useStopWatchV3() {
-    const [time, setTime] = useState();
+    const [time, setTime] = useState(0);
+    const timeRef = useRef<number>(0);
 
     const handleStart = () => {
+        const timerId = setInterval(() => {
+            const ms = new Date().getTime();
+
+            setTime(ms)
+        }, 10)
 
     }
 
