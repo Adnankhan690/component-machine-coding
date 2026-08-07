@@ -21,6 +21,11 @@ export default function useStopWatchV3() {
 
     }
 
+    const formatTime = () => {
+        const second = Math.floor((time / 1000) % 60).toString().padStart(2, "0");
+        const minutes = (time / (1000 * 60) % 60)
+    }
+
     return {
         time,
         handleStart,
