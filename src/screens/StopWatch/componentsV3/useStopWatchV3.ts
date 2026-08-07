@@ -2,13 +2,14 @@ import { useRef, useState } from "react";
 
 export default function useStopWatchV3() {
     const [time, setTime] = useState(0);
+    const [isRunning, setIsRunning] = useState(false);
     const timeRef = useRef<number>(0);
     const timerIdRef = useRef<ReturnType<typeof setInterval>>(null);
-    const [isRunning, setIsRunning] = useState(false);
 
     const handleStart = () => {
         if (timerIdRef.current) return;
 
+        setIsRunning(true);
         timeRef.current = new Date().getTime();
         const newTime = new Date().getTime() - time;
 
@@ -23,12 +24,12 @@ export default function useStopWatchV3() {
         if (!timerIdRef.current) return;
 
         clearInterval(timerIdRef.current);
+        setIsRunning(false);
         timerIdRef.current = null;
     }
 
     const handleReset = () => {
-        if (!timerIdRef.current) return;
-
+        setIsRunning(false);
         setTime(0);
         clearInterval(timerIdRef.current);
         timerIdRef.current = null;
@@ -49,6 +50,7 @@ export default function useStopWatchV3() {
         handleStart,
         handlePause,
         handleReset,
-        formatTime
+        formatTime,
+        isRunning
     }
 }

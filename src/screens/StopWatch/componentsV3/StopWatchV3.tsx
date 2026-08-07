@@ -6,7 +6,8 @@ export default function StopWatchV3() {
         handleStart,
         handleReset,
         time,
-        formatTime
+        formatTime,
+        isRunning
     } = useStopWatchV3();
 
     return (
@@ -14,9 +15,9 @@ export default function StopWatchV3() {
             <p>Stop watch v3</p>
             <p>{formatTime()}</p>
             <div className="stop-watch-controls">
-                <button onClick={handleStart}>start</button>
-                <button onClick={handlePause}>pause</button>
-                <button onClick={handleReset}>reset</button>
+                <button disabled={isRunning} onClick={handleStart}>start</button>
+                <button disabled={!isRunning} onClick={handlePause}>pause</button>
+                <button disabled={time === 0} onClick={handleReset}>reset</button>
             </div>
         </div>
     )
