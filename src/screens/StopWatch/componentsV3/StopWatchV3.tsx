@@ -5,17 +5,18 @@ export default function StopWatchV3() {
         handlePause,
         handleStart,
         handleReset,
-        time
+        time,
+        formatTime
     } = useStopWatchV3();
 
     return (
         <div>
             <p>Stop watch v3</p>
-            <p>{time}</p>
+            <p>{formatTime()}</p>
             <div className="stop-watch-controls">
                 <button onClick={handleStart}>start</button>
-                <button>pause</button>
-                <button>reset</button>
+                <button onClick={handlePause}>pause</button>
+                <button onClick={handleReset}>reset</button>
             </div>
         </div>
     )
