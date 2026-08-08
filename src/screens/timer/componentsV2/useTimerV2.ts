@@ -19,9 +19,19 @@ export default function useTimerV2() {
 
     }
 
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, type: 'minute' | 'seconds') => {
+        const val = e.target.value;
+
+        setInput((prev) => ({
+            ...prev,
+            [type]: Number(val)
+        }))
+    }
+
     return {
         handleStart,
         handlePause,
+        handleInputChange,
         input
     }
 }
