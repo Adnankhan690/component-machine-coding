@@ -6,6 +6,8 @@ export default function TimerV2() {
         handleStart,
         handlePause,
         handleInputChange,
+        isRunning,
+        timerIdRef,
     } = useTimerV2();
 
     return (
@@ -27,8 +29,8 @@ export default function TimerV2() {
                 />
             </div>
             <div>
-                <button onClick={handleStart}>start</button>
-                <button onClick={handlePause}>pause</button>
+                <button disabled={isRunning} onClick={handleStart}>start</button>
+                <button disabled={!isRunning} onClick={handlePause}>pause</button>
             </div>
         </div>
     )

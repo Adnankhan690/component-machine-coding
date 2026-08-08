@@ -10,17 +10,18 @@ export default function useTimerV2() {
         minute: '',
         second: '',
     });
+    const [isRunning, setIsRunning] = useState(false);
     const timerIdRef = useRef<ReturnType<typeof setInterval>>(null);
     const initialTimeRef = useRef<number>(0);
 
     const handleStart = () => {
-        // if (!initialTimeRef.current) return;
-
         const sec = Number(input.second);
         const min = Number(input.minute);
 
         let miliSecond = (sec * 1000) + (min * (60 * 1000));
+        if (!miliSecond) return;
 
+        setIsRunning(true);
 
         initialTimeRef.current = new Date().getTime() + miliSecond;
 
@@ -34,15 +35,24 @@ export default function useTimerV2() {
                 second: String(newSec),
             }
 
+            if (newTime < 0) {
+                timerIdRef.current && clearInterval(timerIdRef.current);
+                timerIdRef.current = null;
+                setIsRunning(false);
+                return;
+            };
+
             setInput(newInput)
         }, 10)
 
     }
 
-    // console.log("ad")
-
     const handlePause = () => {
+        if (!timerIdRef.current) return;
+        setIsRunning(false);
 
+        clearInterval(timerIdRef.current);
+        timerIdRef.current = null;
     }
 
     //how to remove 0
@@ -52,7 +62,7 @@ export default function useTimerV2() {
 
         setInput((prev) => ({
             ...prev,
-            [type]: Number(val)
+            [type]: val
         }))
     }
 
@@ -61,5 +71,7 @@ export default function useTimerV2() {
         handlePause,
         handleInputChange,
         input,
+        isRunning,
+        timerIdRef,
     }
 }
