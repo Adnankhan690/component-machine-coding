@@ -28,6 +28,7 @@ export default function Watch() {
     }, [time])
 
 
+    //formula for convertion
     // 312456ms
     // 1s = 1000ms
     // 1m = 60s = 60 * 1000ms
