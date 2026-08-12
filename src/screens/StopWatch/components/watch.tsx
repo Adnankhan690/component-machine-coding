@@ -8,7 +8,7 @@ export default function Watch() {
     const handleStart = () => {
         const timeInstance = new Date().getTime();
         timerId.current = setTimeout(() => {
-            setTime((prev) => {
+            setTime((_prev) => {
                 const diff = (new Date().getTime() + time) - timeInstance;
                 return diff;
             })
