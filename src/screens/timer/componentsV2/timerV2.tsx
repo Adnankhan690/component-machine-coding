@@ -7,7 +7,6 @@ export default function TimerV2() {
         handlePause,
         handleInputChange,
         isRunning,
-        timerIdRef,
     } = useTimerV2();
 
     return (
