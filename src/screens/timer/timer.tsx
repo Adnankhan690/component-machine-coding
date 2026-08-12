@@ -1,4 +1,4 @@
-import TimerV1 from "./components/timerV1";
+// import TimerV1 from "./components/timerV1";
 import TimerV2 from "./componentsV2/timerV2";
 
 export default function Timer() {
