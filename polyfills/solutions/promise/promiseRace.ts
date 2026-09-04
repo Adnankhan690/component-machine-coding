@@ -28,4 +28,5 @@ myPromiseRace([timer, data])
 	})
 	.catch((error) => {
 		console.error("Failed", error);
-	});
+    });
+    
