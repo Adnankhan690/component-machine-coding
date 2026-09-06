@@ -2,110 +2,188 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import "./infinite-scroll.css";
 
 interface Post {
-    id: number;
-    title: string;
-    body: string;
+	id: number;
+	title: string;
+	body: string;
 }
 
 const PAGE_SIZE = 10;
 const TOTAL_POSTS = 100;
 
 export default function ScreenInfiniteScroll() {
-    const [posts, setPosts] = useState<Post[]>([]);
-    const [page, setPage] = useState(1);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
-    const feedRef = useRef<HTMLDivElement>(null);
-    const sentinelRef = useRef<HTMLDivElement>(null);
-    const hasLoadedInitialPage = useRef(false);
-    const requestInFlight = useRef(false);
+	// const [posts, setPosts] = useState<Post[]>([]);
+	// const [page, setPage] = useState(1);
+	// const [isLoading, setIsLoading] = useState(false);
+	// const [error, setError] = useState<string | null>(null);
+	// const feedRef = useRef<HTMLDivElement>(null);
+	// const sentinelRef = useRef<HTMLDivElement>(null);
+	// const hasLoadedInitialPage = useRef(false);
+	// const requestInFlight = useRef(false);
 
-    const hasMore = posts.length < TOTAL_POSTS;
+	// const hasMore = posts.length < TOTAL_POSTS;
 
-    const loadMore = useCallback(async () => {
-        if (requestInFlight.current || isLoading || !hasMore) return;
+	// const loadMore = useCallback(async () => {
+	//     if (requestInFlight.current || isLoading || !hasMore) return;
 
-        requestInFlight.current = true;
-        setIsLoading(true);
-        setError(null);
+	//     requestInFlight.current = true;
+	//     setIsLoading(true);
+	//     setError(null);
 
-        try {
-            const response = await fetch(
-                `https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=${PAGE_SIZE}`,
-            );
+	//     try {
+	//         const response = await fetch(
+	//             `https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=${PAGE_SIZE}`,
+	//         );
 
-            if (!response.ok) throw new Error("Unable to load posts.");
+	//         if (!response.ok) throw new Error("Unable to load posts.");
 
-            const nextPosts: Post[] = await response.json();
-            setPosts((currentPosts) => [...currentPosts, ...nextPosts]);
-            setPage((currentPage) => currentPage + 1);
-        } catch {
-            setError("We couldn't load more posts. Please try again.");
-        } finally {
-            requestInFlight.current = false;
-            setIsLoading(false);
-        }
-    }, [hasMore, isLoading, page]);
+	//         const nextPosts: Post[] = await response.json();
+	//         setPosts((currentPosts) => [...currentPosts, ...nextPosts]);
+	//         setPage((currentPage) => currentPage + 1);
+	//     } catch {
+	//         setError("We couldn't load more posts. Please try again.");
+	//     } finally {
+	//         requestInFlight.current = false;
+	//         setIsLoading(false);
+	//     }
+	// }, [hasMore, isLoading, page]);
 
-    useEffect(() => {
-        if (hasLoadedInitialPage.current) return;
+	// useEffect(() => {
+	//     if (hasLoadedInitialPage.current) return;
 
-        hasLoadedInitialPage.current = true;
-        loadMore();
-    }, [loadMore]);
+	//     hasLoadedInitialPage.current = true;
+	//     loadMore();
+	// }, [loadMore]);
 
-    useEffect(() => {
-        const sentinel = sentinelRef.current;
-        const feed = feedRef.current;
+	// useEffect(() => {
+	//     const sentinel = sentinelRef.current;
+	//     const feed = feedRef.current;
 
-        if (!sentinel || !feed || !hasMore) return;
+	//     if (!sentinel || !feed || !hasMore) return;
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                if (entries[0].isIntersecting) loadMore();
-            },
-            { root: feed, rootMargin: "120px" },
-        );
+	//     const observer = new IntersectionObserver(
+	//         (entries) => {
+	//             if (entries[0].isIntersecting) loadMore();
+	//         },
+	//         { root: feed, rootMargin: "120px" },
+	//     );
 
-        observer.observe(sentinel);
-        return () => observer.disconnect();
-    }, [hasMore, loadMore]);
+	//     observer.observe(sentinel);
+	//     return () => observer.disconnect();
+	// }, [hasMore, loadMore]);
 
-    return (
-        <section className="infinite-scroll-screen" aria-labelledby="infinite-scroll-title">
-            <div className="infinite-scroll-heading">
-                <div>
-                    <p className="infinite-scroll-eyebrow">Intersection Observer</p>
-                    <h1 id="infinite-scroll-title">Infinite Scroll</h1>
-                    <p className="infinite-scroll-description">
-                        Scroll the feed to load the next set of posts automatically.
-                    </p>
-                </div>
-                <span className="infinite-scroll-count" aria-live="polite">
-                    {posts.length} of {TOTAL_POSTS} posts
-                </span>
-            </div>
+	// return (
+	//     <section className="infinite-scroll-screen" aria-labelledby="infinite-scroll-title">
+	//         <div className="infinite-scroll-heading">
+	//             <div>
+	//                 <p className="infinite-scroll-eyebrow">Intersection Observer</p>
+	//                 <h1 id="infinite-scroll-title">Infinite Scroll</h1>
+	//                 <p className="infinite-scroll-description">
+	//                     Scroll the feed to load the next set of posts automatically.
+	//                 </p>
+	//             </div>
+	//             <span className="infinite-scroll-count" aria-live="polite">
+	//                 {posts.length} of {TOTAL_POSTS} posts
+	//             </span>
+	//         </div>
 
-            <div className="infinite-scroll-feed" ref={feedRef}>
-                {posts.map((post) => (
-                    <article className="infinite-scroll-card" key={post.id}>
-                        <span className="infinite-scroll-post-number">Post {post.id}</span>
-                        <h2>{post.title}</h2>
-                        <p>{post.body}</p>
-                    </article>
-                ))}
+	//         <div className="infinite-scroll-feed" ref={feedRef}>
+	//             {posts.map((post) => (
+	//                 <article className="infinite-scroll-card" key={post.id}>
+	//                     <span className="infinite-scroll-post-number">Post {post.id}</span>
+	//                     <h2>{post.title}</h2>
+	//                     <p>{post.body}</p>
+	//                 </article>
+	//             ))}
 
-                <div className="infinite-scroll-status" ref={sentinelRef} aria-live="polite">
-                    {isLoading && "Loading more posts..."}
-                    {error && (
-                        <>
-                            <span>{error}</span>
-                            <button type="button" onClick={loadMore}>Try again</button>
-                        </>
-                    )}
-                    {!isLoading && !error && !hasMore && "You've reached the end of the feed."}
-                </div>
-            </div>
-        </section>
-    );
+	//             <div className="infinite-scroll-status" ref={sentinelRef} aria-live="polite">
+	//                 {isLoading && "Loading more posts..."}
+	//                 {error && (
+	//                     <>
+	//                         <span>{error}</span>
+	//                         <button type="button" onClick={loadMore}>Try again</button>
+	//                     </>
+	//                 )}
+	//                 {!isLoading && !error && !hasMore && "You've reached the end of the feed."}
+	//             </div>
+	//         </div>
+	//     </section>
+	// );
+
+	const [posts, setPosts] = useState<Post[]>([]);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [isLoading, setIsLoading] = useState(false);
+	const [error, setError] = useState<string | null>(null);
+	const feedRef = useRef<HTMLDivElement>(null);
+	const sentinelRef = useRef<HTMLDivElement>(null);
+	const isRequestInFlight = useRef(false);
+	const hasLoadedInitialPage = useRef(false);
+
+	const hasMore = posts.length < TOTAL_POSTS;
+
+	const loadMore = useCallback(async () => {
+		if (isLoading || isRequestInFlight.current || !hasMore) return;
+
+		setIsLoading(true);
+		setError(null);
+		isRequestInFlight.current = true;
+
+		try {
+			const response = await fetch(
+				`https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=${PAGE_SIZE}`,
+			);
+
+			if (!response.ok) throw new Error("failed to fetch posts");
+
+			const postData = await response.json();
+            setPosts((prev) => [...prev, ...postData]);
+            setCurrentPage(currentPage + 1);
+		} catch (error) {
+			setError("We couldn't load more posts. Please try again.");
+		} finally {
+			setIsLoading(false);
+			isRequestInFlight.current = false;
+		}
+	}, [hasMore, currentPage, isLoading]);
+
+	useEffect(() => {
+		if (hasLoadedInitialPage.current) return;
+
+		hasLoadedInitialPage.current = true;
+
+		loadMore();
+	}, [loadMore]);
+
+	useEffect(() => {
+		const feed = feedRef.current;
+		const sentinel = sentinelRef.current;
+
+		if (!feed || !sentinel || !hasMore) return;
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const isIntersecting = entries[0].isIntersecting;
+
+				if (isIntersecting) loadMore();
+			},
+			{ root: feed, rootMargin: "120px" },
+		);
+
+		observer.observe(sentinel);
+
+		return () => observer.disconnect();
+	}, [hasMore, loadMore]);
+
+	return (
+		<div className="post-feed" ref={feedRef}>
+			{posts.map((post) => (
+				<div key={post.id}>
+					<p>{post.title}</p>
+					<p>{post.body}</p>
+				</div>
+			))}
+			<div className="load-more" ref={sentinelRef}>
+				<p>Loading more...</p>
+			</div>
+		</div>
+	);
 }
