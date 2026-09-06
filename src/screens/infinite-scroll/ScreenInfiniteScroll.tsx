@@ -141,7 +141,7 @@ export default function ScreenInfiniteScroll() {
 			setError("We couldn't load more posts. Please try again.");
 		} finally {
 			setIsLoading(false);
-			isRequestInFlight.current = false;
+			isRequestInFlight.current = false; 
 		}
 	}, [hasMore, currentPage, isLoading]);
 
