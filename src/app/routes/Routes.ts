@@ -13,6 +13,7 @@ const Routes = {
     SCREEN_DIGITAL_CLOCK: '/digital-clock',
     SCREEN_OTP: '/otp',
     SCREEN_PAGINATION: '/pagination',
+    SCREEN_INFINITE_SCROLL: '/infinite-scroll',
     SCREEN_ACCORDIAN: '/accordian',
     SCREEN_TAB_V2: '/tab-v2',
 };
