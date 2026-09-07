@@ -26,10 +26,20 @@ function myPromiseAny(promises) {
 }
 
 const promiseOneReject = Promise.reject("Rjected promise 1");
+const promiseThreeReject = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("resolved in a timeout after 1sec");
+    }, 1000)
+})
 const promiseTwoSucc1 = Promise.reject("Resolved 1");
 const promiseTwoSucc2 = Promise.reject("Resolved 2");
 
-myPromiseAny([promiseOneReject, promiseTwoSucc1, promiseTwoSucc2])
+myPromiseAny([
+	promiseOneReject,
+	promiseTwoSucc1,
+	promiseTwoSucc2,
+	promiseThreeReject,
+])
 	.then((res) => {
 		console.log(res);
 	})
