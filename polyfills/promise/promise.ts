@@ -1,0 +1,7 @@
+
+
+class MyPromise {
+    constructor(context) {
+
+    }
+}
