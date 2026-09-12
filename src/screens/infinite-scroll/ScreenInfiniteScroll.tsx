@@ -1,14 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from "react";
 import "./infinite-scroll.css";
-
-interface Post {
-	id: number;
-	title: string;
-	body: string;
-}
-
-const PAGE_SIZE = 10;
-const TOTAL_POSTS = 100;
+import InfiniteScrollWithScrollEvent from "./InfiniteScrollWithScrollEvent";
 
 export default function ScreenInfiniteScroll() {
 	// const [posts, setPosts] = useState<Post[]>([]);
@@ -109,80 +100,7 @@ export default function ScreenInfiniteScroll() {
 	//     </section>
 	// );
 
-	const [posts, setPosts] = useState<Post[]>([]);
-	const [currentPage, setCurrentPage] = useState(1);
-	const [isLoading, setIsLoading] = useState(false);
-	const [error, setError] = useState<string | null>(null);
-	const feedRef = useRef<HTMLDivElement>(null);
-	const sentinelRef = useRef<HTMLDivElement>(null);
-	const isRequestInFlight = useRef(false);
-	const hasLoadedInitialPage = useRef(false);
-
-	const hasMore = posts.length < TOTAL_POSTS;
-
-	const loadMore = useCallback(async () => {
-		if (isLoading || isRequestInFlight.current || !hasMore) return;
-
-		setIsLoading(true);
-		setError(null);
-		isRequestInFlight.current = true;
-
-		try {
-			const response = await fetch(
-				`https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=${PAGE_SIZE}`,
-			);
-
-			if (!response.ok) throw new Error("failed to fetch posts");
-
-			const postData = await response.json();
-	        setPosts((prev) => [...prev, ...postData]);
-	        setCurrentPage(currentPage + 1);
-		} catch (error) {
-			setError("We couldn't load more posts. Please try again.");
-		} finally {
-			setIsLoading(false);
-			isRequestInFlight.current = false;
-		}
-	}, [hasMore, currentPage, isLoading]);
-
-	useEffect(() => {
-		if (hasLoadedInitialPage.current) return;
-
-		hasLoadedInitialPage.current = true;
-
-		loadMore();
-	}, [loadMore]);
-
-	useEffect(() => {
-		const feed = feedRef.current;
-		const sentinel = sentinelRef.current;
-
-		if (!feed || !sentinel || !hasMore) return;
-
-		const observer = new IntersectionObserver(
-			(entries) => {
-				const isIntersecting = entries[0].isIntersecting;
-
-				if (isIntersecting) loadMore();
-			},
-			{ root: feed, rootMargin: "120px" },
-		);
-
-		observer.observe(sentinel);
-
-		return () => observer.disconnect();
-	}, [hasMore, loadMore]);
-
-	return (
-		<div className="post-feed" ref={feedRef}>
-			{posts.map((post) => (
-				<div key={post.id}>
-					<p>{post.title}</p>
-					<p>{post.body}</p>
-				</div>
-			))}
-			<div className="load-more" ref={sentinelRef}>
-				<p>Loading more...</p>
-			</div>
-		</div>
-	);
+	// The active IntersectionObserver version was moved to comments above.
+	// This component instead detects the distance from the feed's scroll bottom.
+	return <InfiniteScrollWithScrollEvent />;
+}

@@ -1,4 +1,4 @@
-/* .infinite-scroll-screen {
+.infinite-scroll-screen {
     max-width: 760px;
 }
 
@@ -100,7 +100,7 @@
         flex-direction: column;
         gap: 10px;
     }
-} */
+}
 
 
 
