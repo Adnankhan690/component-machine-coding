@@ -22,7 +22,8 @@ const tabs: Tab[] = [
 	{
 		id: "settings",
 		label: "Settings",
-		content: "Manage your account preferences and notifications.",
+        content: "Manage your account preferences and notifications.",
+        disabled: false,
 	},
 	{
 		id: "billing",
