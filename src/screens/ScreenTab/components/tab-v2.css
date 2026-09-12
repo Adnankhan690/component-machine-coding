@@ -1,0 +1,31 @@
+
+.tab-con {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4b5563; /* Neutral gray text */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover state for inactive tabs */
+.btn-con:hover {
+    background-color: #f3f4f6;
+    color: #1f2937;
+}
+
+/* Active or selected state */
+.btn-con.active, 
+.btn-con[aria-selected="true"] {
+    background-color: #ffffff;
+    color: #2563eb; /* Clean blue accent */
+    border-color: #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
