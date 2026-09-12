@@ -135,13 +135,13 @@ export default function ScreenInfiniteScroll() {
 			if (!response.ok) throw new Error("failed to fetch posts");
 
 			const postData = await response.json();
-            setPosts((prev) => [...prev, ...postData]);
-            setCurrentPage(currentPage + 1);
+	        setPosts((prev) => [...prev, ...postData]);
+	        setCurrentPage(currentPage + 1);
 		} catch (error) {
 			setError("We couldn't load more posts. Please try again.");
 		} finally {
 			setIsLoading(false);
-			isRequestInFlight.current = false; 
+			isRequestInFlight.current = false;
 		}
 	}, [hasMore, currentPage, isLoading]);
 
@@ -186,4 +186,3 @@ export default function ScreenInfiniteScroll() {
 			</div>
 		</div>
 	);
-}
