@@ -1,4 +1,4 @@
-function myPromiseAllV2(promises) {
+function myPromiseAllV2<T>(promises: Promise<T>[]) {
 	return new Promise((resolve, reject) => {
 		if (promises.length === 0) {
 			resolve([]);
