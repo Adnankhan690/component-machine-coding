@@ -16,6 +16,7 @@ const Routes = {
     SCREEN_INFINITE_SCROLL: '/infinite-scroll',
     SCREEN_ACCORDIAN: '/accordian',
     SCREEN_TAB_V2: '/tab-v2',
+    SCREEN_STAR_RATING: '/star-rating',
 };
 
 export default Routes;

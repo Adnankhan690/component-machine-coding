@@ -17,4 +17,5 @@ export const sidebar = [
     { name: "Infinite Scroll", path: Routes.SCREEN_INFINITE_SCROLL, id: "infinite-scroll" },
     { name: "Accordion", path: Routes.SCREEN_ACCORDIAN, id: "accordion" },
     { name: "tabV2", path: Routes.SCREEN_TAB_V2, id: "tabV2" },
+    { name: "Star Rating", path: Routes.SCREEN_STAR_RATING, id: "star-rating" },
 ]

@@ -1,0 +1,97 @@
+.star-rating-screen {
+	max-width: 520px;
+	padding: 32px;
+	border: 1px solid #e4e4e7;
+	border-radius: 16px;
+	background: #fff;
+}
+
+.star-rating-eyebrow {
+	margin: 0 0 8px;
+	color: #4f46e5;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.star-rating-screen h1 {
+	margin: 0;
+	color: #18181b;
+}
+
+.star-rating-description,
+.star-rating-value {
+	color: #52525b;
+}
+
+.star-rating-control {
+	display: flex;
+	gap: 6px;
+	margin: 24px 0 12px;
+}
+
+.star-rating-star {
+	padding: 0;
+	border: 0;
+	color: #d4d4d8;
+	background: transparent;
+	font-size: 2.5rem;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.star-rating-star span {
+	transition:
+		color 150ms ease,
+		transform 150ms ease;
+}
+
+.star-rating-star:hover span,
+.star-rating-star:focus-visible span {
+	transform: scale(1.12);
+}
+
+.star-rating-star .is-filled {
+	color: #f59e0b;
+}
+
+.star-rating-star:focus-visible {
+	outline: 3px solid #a5b4fc;
+	outline-offset: 4px;
+	border-radius: 4px;
+}
+
+.star-rating-clear {
+	padding: 7px 10px;
+	border: 1px solid #a1a1aa;
+	border-radius: 6px;
+	color: #3f3f46;
+	background: #fff;
+	cursor: pointer;
+}
+
+.btn-con {
+	border: none;
+	background: none;
+	padding: 0;
+	margin: 0;
+	outline: none;
+}
+
+.star-active {
+	fill: #f59e0b;
+	stroke: red;
+	
+}
+
+.star-active:hover {
+	fill: #f59e0b;
+	stroke: red;
+}
+
+.star {
+	width: 124px;
+	height: 124px;
+	stroke-width: 0.5px;
+}
