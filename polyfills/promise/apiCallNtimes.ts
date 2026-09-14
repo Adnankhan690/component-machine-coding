@@ -19,6 +19,7 @@ async function retryApiNTimes(n: number) {
 
 const maxAttempts = 5;
 
+
 function callNTimes() {
 	let count = 0;
 
