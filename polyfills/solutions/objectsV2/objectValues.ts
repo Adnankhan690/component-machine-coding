@@ -14,3 +14,9 @@ function myObjectValues(obj: unknown) {
 
     return result;
 }
+
+(Object as any).myValues = myObjectValues;
+
+if (!Object.values) {
+    Object.values = myObjectValues;
+}
