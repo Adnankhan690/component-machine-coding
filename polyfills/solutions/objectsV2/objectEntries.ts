@@ -28,7 +28,7 @@ const objOne = {};
 
 Object.defineProperty(objOne, 'hidden', {
     value: "khan",
-    enumerable: true,
+    enumerable: false,
 })
 
 objOne["age"] = 12;
