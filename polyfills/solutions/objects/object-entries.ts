@@ -13,8 +13,7 @@
 // 5. Symbol-keyed properties must be ignored.
 // 6. Objects with no prototype (e.g. Object.create(null)) do not have hasOwnProperty on their
 //    prototype chain. We must call it safely via Object.prototype.hasOwnProperty.call(obj, key).
-
-interface ObjectConstructor {
+ interface ObjectConstructor {
 	myEntries(o: unknown): [string, any][];
 }
 
