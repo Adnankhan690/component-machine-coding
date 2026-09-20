@@ -17,26 +17,29 @@ export default function InterSectionObserver() {
 	const [isLoading, setIsLoading] = useState(false);
 	const flightReqRef = useRef(false);
 
-	const fetchData = useCallback(async () => {
+	const fetchData = useCallback(async (currentPage = 1) => {
 		if (flightReqRef.current) return;
 
 		flightReqRef.current = true;
-		setCurrentPage((prev) => prev + 1);
 		setIsLoading(true);
 
-		const response = await fetch(
-			`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=${PAGE_SIZE}`,
-		);
+		try {
+			const response = await fetch(
+				`https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=${PAGE_SIZE}`,
+			);
 
-		const responseData = await response.json();
-
-		setData((prev) => {
-			return [...prev, ...responseData];
-		});
-
-		setIsLoading(false);
-		flightReqRef.current = false;
-	}, [page]);
+			const responseData = await response.json();
+			setData((prev) => {
+				return [...prev, ...responseData];
+			});
+			setCurrentPage((prev) => prev + 1);
+		} catch (error) {
+			console.log(error);
+		} finally {
+			setIsLoading(false);
+			flightReqRef.current = false;
+		}
+	}, []);
 
 	// const handleScroll = useCallback(
 	// 	(event: UIEvent<HTMLDivElement>) => {
@@ -65,7 +68,7 @@ export default function InterSectionObserver() {
 			(entries) => {
 				const isIntersecting = entries[0].isIntersecting;
 				if (isIntersecting) {
-					fetchData();
+					fetchData(page);
 				}
 			},
 			{ root: infiniteRoot, scrollMargin: "120px" },
