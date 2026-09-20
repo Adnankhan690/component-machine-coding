@@ -17,6 +17,7 @@ const Routes = {
     SCREEN_ACCORDIAN: '/accordian',
     SCREEN_TAB_V2: '/tab-v2',
     SCREEN_STAR_RATING: '/star-rating',
+    SCREEN_DEBOUNCED_SEARCH: '/debounced-search',
 };
 
 export default Routes;

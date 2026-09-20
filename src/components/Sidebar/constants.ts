@@ -18,4 +18,5 @@ export const sidebar = [
     { name: "Accordion", path: Routes.SCREEN_ACCORDIAN, id: "accordion" },
     { name: "tabV2", path: Routes.SCREEN_TAB_V2, id: "tabV2" },
     { name: "Star Rating", path: Routes.SCREEN_STAR_RATING, id: "star-rating" },
+    { name: "Debounced Search", path: Routes.SCREEN_DEBOUNCED_SEARCH, id: "debounced-search" },
 ]

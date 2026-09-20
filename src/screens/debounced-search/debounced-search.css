@@ -1,0 +1,69 @@
+.debounced-search-screen {
+    max-width: 760px;
+}
+
+.debounced-search-eyebrow {
+    margin: 0 0 6px;
+    color: #4f46e5;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.debounced-search-screen h1 {
+    margin: 0;
+    color: #18181b;
+}
+
+.debounced-search-description {
+    margin: 8px 0 20px;
+    color: #52525b;
+}
+
+.debounced-search-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.debounced-search-input:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.debounced-search-status {
+    min-height: 20px;
+    margin: 12px 0 16px;
+    color: #52525b;
+    font-size: 0.9rem;
+}
+
+.debounced-search-results {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.debounced-search-card {
+    padding: 16px;
+    border: 1px solid #e4e4e7;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.debounced-search-card h2 {
+    margin: 0 0 8px;
+    color: #18181b;
+    font-size: 1rem;
+}
+
+.debounced-search-card p {
+    margin: 0;
+    color: #52525b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
