@@ -112,3 +112,13 @@
     overflow: scroll;
     height: 600px;
 }
+
+
+
+
+/* intersection-observer  */
+.scroll-con {
+    height: 600px;
+    border: 1px solid red;
+    overflow: scroll;
+}

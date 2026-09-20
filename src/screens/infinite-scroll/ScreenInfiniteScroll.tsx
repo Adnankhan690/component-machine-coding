@@ -1,5 +1,6 @@
-import "./infinite-scroll.css";
-import InfiniteScrollWithScrollEvent from "./InfiniteScrollWithScrollEvent";
+// import "./infinite-scroll.css";
+// import InfiniteScrollWithScrollEvent from "./InfiniteScrollWithScrollEvent";
+import InterSectionObserver from "./InterSectionObserver";
 
 export default function ScreenInfiniteScroll() {
 	// const [posts, setPosts] = useState<Post[]>([]);
@@ -102,5 +103,6 @@ export default function ScreenInfiniteScroll() {
 
 	// The active IntersectionObserver version was moved to comments above.
 	// This component instead detects the distance from the feed's scroll bottom.
-	return <InfiniteScrollWithScrollEvent />;
+	// return <InfiniteScrollWithScrollEvent />;
+	return <InterSectionObserver />;
 }
