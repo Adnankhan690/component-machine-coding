@@ -23,23 +23,29 @@ Object.myPick = myPick;
 
 const sourceObj = { a: 1, b: 2, c: 3 };
 
-console.log(
-    Object.myPick(sourceObj, ['a', 'b'])
-)
+console.log(Object.myPick(sourceObj, ["a", "b"]));
 
-const set = new Set(['a', 'c']);
+const set = new Set(["a", "c"]);
 console.log(Object.myPick(sourceObj, set));
 
 const parentObject = { inheritedInfo: "dna" };
 const childObject = Object.create(parentObject);
 childObject.name = "adnan";
 
-console.log(
-    Object.myPick(childObject, ['inheritedInfo', 'name'])
-)
+console.log(Object.myPick(childObject, ["inheritedInfo", "name"]));
 
 const symKey = Symbol("name");
 const secrectObj = { [symKey]: "ssh", hidden: "yes" };
+console.log(Object.myPick(secrectObj, [symKey]));
+
+const con = { threshold: 25 };
 console.log(
-    Object.myPick(secrectObj, [symKey])
-)
+	"Test 6 - predicate with thisArg:",
+	Object.myPick(
+		sourceObj,
+		function (this: typeof context, value: number) {
+			return value > this.threshold;
+		},
+		con,
+	),
+);
