@@ -49,33 +49,3 @@ promiseAllSettledV2([prom1, prom2])
 	.catch((error) => {
 		console.log(error);
 	});
-
-function promiseAllSettledV3<T>(promises: Promise<T>[]) {
-	return new Promise((resolve, reject) => {
-		if (promises.length === 0) {
-			resolve([]);
-			return;
-		}
-
-		const result = new Array(promises.length);
-		let completedCount = 0;
-
-		promises.forEach((promise, idx) => {
-			Promise.resolve(promise).then((val) => {
-				result[idx] = { status: 'fullfilled', val };
-				completedCount++;
-
-				if (completedCount === promises.length) {
-					resolve(result);
-				}
-			}).catch((error) => {
-				result[idx] = { status: 'rejected', error };
-				completedCount++;
-
-				if (completedCount === promises.length) {
-					resolve(result);
-				}
-			})
-		})
-	});
-}
