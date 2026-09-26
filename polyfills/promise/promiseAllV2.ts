@@ -33,6 +33,10 @@ const pro1 = new Promise((resolve) => {
 
 const pro2 = Promise.reject("Rejected immediately");
 
+myPromiseAllV2([])
+	.then((val) => console.log("success"))
+	.catch((error) => console.log(error));
+
 myPromiseAllV2([pro1, pro2])
 	.then((val) => {
 		console.log(val);
