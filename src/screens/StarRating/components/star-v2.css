@@ -1,3 +1,13 @@
 .rated {
-    background-color: yellow;
+    fill: orange;
+    color: rgb(63, 42, 1);
+}
+
+.hRating {
+    fill: red;
+    color: rgb(63, 42, 1);
+}
+
+.star-con {
+    background-color: green;
 }
