@@ -101,3 +101,18 @@ myPromise1.then(
 		console.log(error); // error: unknown
 	},
 );
+
+const myPro3 = new MyPromise((resolve, reject) => {
+	setTimeout(() => {
+		resolve("ccd");
+	}, 3000);
+});
+
+myPro3.then(
+	(result) => {
+		console.log(result);
+	},
+	(error) => {
+		console.log(error);
+	},
+);
