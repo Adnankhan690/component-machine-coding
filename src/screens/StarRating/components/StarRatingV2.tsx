@@ -22,26 +22,29 @@ export default function StarRatingV2() {
 	};
 
 	return (
-		<div>
-			<div className="str-main-con">
-				{Array.from({ length: STAR_LENGTH }, () => 0).map((ele, idx) => {
-					const isRated = ratings >= idx + 1;
-					const hRating = hoveredRating >= idx + 1;
+		<div className="str-main-con" role="radiogroup" aria-label="Product Rating">
+			{Array.from({ length: STAR_LENGTH }, () => 0).map((ele, idx) => {
+				const starValue = idx + 1;
+				const isRated = ratings >= starValue;
+				const hRating = hoveredRating >= starValue;
 
-                    return (
-                        <div
-                            className='star-con'
-							key={idx}
-							onClick={() => handleClick(idx + 1)}>
-							<Star
-								className={`star-icon ${isRated ? "rated" : ""} ${hRating ? "hRating" : ""} `}
-								onMouseEnter={() => handleMouseEnter(idx + 1)}
-								onMouseLeave={() => handleMouseLeave()}
-							/>
-						</div>
-					);
-				})}
-			</div>
+				return (
+					<button
+						className="star-con"
+						key={idx}
+						role="radio"
+						aria-check={ratings === starValue}
+						aria-label={`${starValue} star of ${STAR_LENGTH} stars`}
+						onClick={() => handleClick(starValue)}>
+						<Star
+							className={`star-icon ${isRated ? "rated" : ""} ${hRating ? "hRating" : ""} `}
+							onMouseEnter={() => handleMouseEnter(starValue)}
+							onMouseLeave={() => handleMouseLeave()}
+							aria-hidden="true"
+						/>
+					</button>
+				);
+			})}
 		</div>
 	);
 }
