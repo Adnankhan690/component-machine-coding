@@ -23,15 +23,18 @@ export default function StarRatingV2() {
 
 	return (
 		<div>
-			<div>
+			<div className="str-main-con">
 				{Array.from({ length: STAR_LENGTH }, () => 0).map((ele, idx) => {
 					const isRated = ratings >= idx + 1;
 					const hRating = hoveredRating >= idx + 1;
 
-					return (
-						<div className="star-con" key={idx} onClick={() => handleClick(idx + 1)}>
+                    return (
+                        <div
+                            className='star-con'
+							key={idx}
+							onClick={() => handleClick(idx + 1)}>
 							<Star
-								className={`${isRated ? "rated" : ""} ${hRating ? "hRating" : ""} `}
+								className={`star-icon ${isRated ? "rated" : ""} ${hRating ? "hRating" : ""} `}
 								onMouseEnter={() => handleMouseEnter(idx + 1)}
 								onMouseLeave={() => handleMouseLeave()}
 							/>

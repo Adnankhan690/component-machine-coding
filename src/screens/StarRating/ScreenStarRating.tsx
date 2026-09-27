@@ -67,7 +67,7 @@ export default function ScreenStarRating() {
 
 	return (
 		<div>
-			{/* {Array.from({ length: 5 }, () => false).map((_, idx) => {
+			{Array.from({ length: 5 }, () => false).map((_, idx) => {
 				const rating = hoveredRating || stars;
 				const visibleRating = rating >= idx + 1;
 
@@ -84,7 +84,7 @@ export default function ScreenStarRating() {
 						<Star className={`${visibleRating ? "star-active" : ""} star`} />
 					</button>
 				);
-			})} */}
+			})}
 
 			<StarRatingV2 />
 		</div>
