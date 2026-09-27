@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import useDebounce from "./hooks/useDebounce";
 import "./debounced-search.css";
-import  DebouncedV1  from "./DebouncedV1";
+import DebouncedV1 from "./DebouncedV1";
+import DebouncedV2 from "./DebouncedV2";
 
 interface Post {
 	id: number;
@@ -100,7 +101,8 @@ export default function ScreenDebouncedSearch() {
 					</article>
 				))}
 			</div> */}
-			<DebouncedV1 />
+			{/* <DebouncedV1 /> */}
+			<DebouncedV2 />
 		</section>
 	);
 }
