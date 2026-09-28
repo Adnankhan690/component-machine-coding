@@ -7,31 +7,38 @@ interface Post {
 	body: string;
 }
 
+type Status = "idle" | "pending" | "success" | "error";
+
 export default function DebouncedV2() {
 	const [posts, setPosts] = useState<Post[]>([]);
 	const [input, setInput] = useState("");
 	const debouncedVal = useDebouncedV2(input, 1000);
+	const [status, setStatus] = useState<Status>("idle");
 
-    const fetchData = async () => {
-        const data = await fetch(
-            `https://jsonplaceholder.typicode.com/posts?q=${encodeURIComponent(debouncedVal)}`,
-        );
+	const fetchData = async () => {
+		if (status === "pending") return;
+		setStatus("pending");
 
-        const post = await data.json();
-        setPosts(post);
-    };
+		try {
+			const data = await fetch(
+				`https://jsonplaceholder.typicode.com/posts?q=${encodeURIComponent(debouncedVal)}`,
+			);
 
-	useEffect(() => {
-		fetchData();
-	}, []);
+			const post = await data.json();
+			setPosts(post);
+			setStatus("success");
+		} catch (error) {
+			setStatus("error");
+		}
+	};
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setInput(e.target.value.trim());
-    };
-    
-    useEffect(() => {
-        fetchData();
-    }, [debouncedVal])
+	};
+
+	useEffect(() => {
+		fetchData();
+	}, [debouncedVal]);
 
 	return (
 		<div>
