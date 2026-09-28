@@ -126,6 +126,7 @@ const trg = { age: 23 };
 const res = myCustomAssign(trg, src, src2);
 console.log(res);
 
+
 // test-case 2
 const str1 = { view: "yes" };
 Object.defineProperty(str1, "secret", {
@@ -138,3 +139,15 @@ const res2 = myCustomAssign(trg2, str1)
 console.log(res2);
 
 
+//test-case 3
+const symbolKey = Symbol("hashKey");
+const obj2 = { hello: "john" };
+const trg3 = { trg3: "target-3" };
+
+Object.defineProperty(obj2, symbolKey, {
+	value: "****",
+	enumerable: false,
+});
+
+const res3 = myCustomAssign(trg3, obj2);
+console.log(res3);
