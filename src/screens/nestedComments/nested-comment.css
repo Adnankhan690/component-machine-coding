@@ -1,0 +1,14 @@
+.nested-main-con {
+    border: 1px solid black;
+    /* display: flex; */
+}
+
+.nested-con {
+    display: flex;
+}
+
+.controls {
+    display: flex;
+    gap: 4px;
+    margin-left: 2px;
+}
