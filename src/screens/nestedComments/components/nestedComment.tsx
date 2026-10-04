@@ -18,13 +18,13 @@ export default function NestedComment() {
 	const [reply, setReply] = useState<Reply>({ id: "", value: "" });
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setComment(e.target.value.trim());
+		setComment(e.target.value);
 	};
 
 	const handleAddComment = () => {
 		setComments((prev) => [
 			...prev,
-			{ id: crypto.randomUUID(), title: comment, child: [] },
+			{ id: crypto.randomUUID(), title: comment.trim(), child: [] },
 		]);
 	};
 
@@ -33,7 +33,7 @@ export default function NestedComment() {
 	};
 
 	const handleChangeReply = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setReply((prev) => ({ ...prev, value: e.target.value.trim() }));
+		setReply((prev) => ({ ...prev, value: e.target.value }));
 	};
 
 	const handleAddReply = (id: string) => {
@@ -42,7 +42,7 @@ export default function NestedComment() {
 				if (comment.id === id) {
 					const newComment = {
 						id: crypto.randomUUID(),
-						title: reply.value,
+						title: reply.value.trim(),
 						child: [],
 					};
 
@@ -108,6 +108,7 @@ function Nodes({
 							placeholder="reply ?"
 							value={reply.value}
 							onChange={handleChangeReply}
+                            autoFocus
 						/>
 						<button onClick={() => handleAddReply(comment.id)}>add</button>
 					</>
@@ -117,7 +118,8 @@ function Nodes({
 			</div>
 
 			{comment.child.map((com) => (
-				<Nodes
+                <Nodes
+                    key={com.id}
 					comment={com}
 					handleAddReply={handleAddReply}
 					handleChangeReply={handleChangeReply}
