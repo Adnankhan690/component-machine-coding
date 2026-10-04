@@ -19,6 +19,7 @@ const Routes = {
     SCREEN_STAR_RATING: '/star-rating',
     SCREEN_DEBOUNCED_SEARCH: '/debounced-search',
     SCREEN_GENERATIVE_UI: '/generative-ui',
+    SCREEN_NESTED_COMMENTS: '/nested-comments',
 };
 
 export default Routes;

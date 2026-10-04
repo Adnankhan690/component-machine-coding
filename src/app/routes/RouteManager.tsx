@@ -20,6 +20,7 @@ import ScreenTabV2 from "@/screens/tab/ScreenTab";
 import ScreenStarRating from "@/screens/StarRating/ScreenStarRating";
 import ScreenDebouncedSearch from "@/screens/debounced-search/ScreenDebouncedSearch";
 import ScreenGenerativeUi from "@/screens/GenerativeUi/ScreenGenerativeUi";
+import NestedComments from "@/screens/nestedComments/NestedComments";
 
 export default function RouteManager() {
 	return (
@@ -45,6 +46,7 @@ export default function RouteManager() {
 					<Route path={Routes.SCREEN_STAR_RATING} element={<ScreenStarRating />} />
 					<Route path={Routes.SCREEN_DEBOUNCED_SEARCH} element={<ScreenDebouncedSearch />} />
 					<Route path={Routes.SCREEN_GENERATIVE_UI} element={<ScreenGenerativeUi />} />
+					<Route path={Routes.SCREEN_NESTED_COMMENTS} element={<NestedComments />} />
 				</Route>
 			</ReactRooutes>
 		</BrowserRouter>

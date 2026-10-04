@@ -20,4 +20,5 @@ export const sidebar = [
     { name: "Star Rating", path: Routes.SCREEN_STAR_RATING, id: "star-rating" },
     { name: "Debounced Search", path: Routes.SCREEN_DEBOUNCED_SEARCH, id: "debounced-search" },
     { name: "Generative UI", path: Routes.SCREEN_GENERATIVE_UI, id: "generative-ui" },
+    { name: "Nested Comments", path: Routes.SCREEN_NESTED_COMMENTS, id: "nested-comments" },
 ]
