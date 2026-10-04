@@ -33,20 +33,24 @@ export default function NestedComments() {
 		}));
 	};
 
-	const handleAddReply = (id: string) => {
-		const add = (nestedCom: Comments[]) => {
-			nestedCom.map((com) => {
-				if (com.id === id) {
-					return {};
-				}
-				return { com, child: com.child.length !== 0 ? add(com.child) : [] };
-			});
-		};
+    const handleAddReply = (id: string) => {
+			const add = (nestedCom: Comments[]): Comments[] =>
+				nestedCom.map((com) => {
+					if (com.id === id) {
+						const newReply: Comments = {
+							id: crypto.randomUUID(),
+							comment: reply.value,
+							child: [],
+						};
+						return { ...com, child: [...com.child, newReply] };
+					}
+					return { ...com, child: add(com.child) };
+				});
 
-		setComments((prev) => {
-			return;
-		});
-	};
+			setComments((prev) => add(prev));
+			setReply({ id: "", value: "" });
+		};
+    
 
 	return (
 		<section className="nested-comments-screen">
@@ -64,32 +68,46 @@ export default function NestedComments() {
 
 			<div className="nested-main-con">
 				{comments.map((comment, idx) => (
-					<div className="nested-con" key={comment.id}>
-						<div className="controls">
-							<p>{comment.comment}</p>
-							{comment.id !== reply.id ? (
-								<button
-									onClick={() => {
-										handleReply(comment.id);
-									}}>
-									reply
-								</button>
-							) : (
-								<div>
-									<input placeholder="Reply ?" onChange={handleReplyChange} />
-									<button
-										onClick={() => {
-											handleAddReply(comment.id);
-										}}>
-										add
-									</button>
-								</div>
-							)}
-							{/* <button>delete</button> */}
-						</div>
-					</div>
+					<CommentNode
+						key={comment.id}
+						com={comment}
+						reply={reply}
+						onReply={handleReply}
+						onReplyChange={handleReplyChange}
+						onAddReply={handleAddReply}
+					/>
 				))}
 			</div>
 		</section>
+	);
+}
+
+
+function CommentNode({ com, reply, onReply, onReplyChange, onAddReply }) {
+	return (
+		<div className="nested-con">
+			<div className="controls">
+				<p>{com.comment}</p>
+				{com.id !== reply.id ? (
+					<button onClick={() => onReply(com.id)}>reply</button>
+				) : (
+					<div>
+						<input placeholder="Reply ?" onChange={onReplyChange} />
+						<button onClick={() => onAddReply(com.id)}>add</button>
+					</div>
+				)}
+			</div>
+
+			{com.child.map((childCom) => (
+				<CommentNode
+					key={childCom.id}
+					com={childCom}
+					reply={reply}
+					onReply={onReply}
+					onReplyChange={onReplyChange}
+					onAddReply={onAddReply}
+				/>
+			))}
+		</div>
 	);
 }

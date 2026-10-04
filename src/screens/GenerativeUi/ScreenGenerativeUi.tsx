@@ -6,6 +6,7 @@ interface Turn {
 	question: string;
 	text: string;
 	ui: UiBlock[];
+	model: string;
 }
 
 const EXAMPLES = [
@@ -37,7 +38,10 @@ export default function ScreenGenerativeUi() {
 
 			if (!response.ok) throw new Error(data.error ?? "Request failed");
 
-			setTurns((prev) => [...prev, { question: trimmed, text: data.text, ui: data.ui }]);
+			setTurns((prev) => [
+				...prev,
+				{ question: trimmed, text: data.text, ui: data.ui, model: data.model },
+			]);
 			setQuestion("");
 		} catch (err) {
 			setError(err instanceof Error ? err.message : "Something went wrong");
@@ -93,9 +97,10 @@ export default function ScreenGenerativeUi() {
 						{turn.text && <p className="genui-text">{turn.text}</p>}
 						<GenerativeUi blocks={turn.ui} />
 						<p className="genui-meta">
+							{turn.model} &rarr;{" "}
 							{turn.ui.length > 0
-								? `rendered: ${turn.ui.map((block) => block.name).join(", ")}`
-								: "rendered: plain text (no component matched)"}
+								? turn.ui.map((block) => block.name).join(", ")
+								: "plain text (no component matched)"}
 						</p>
 					</article>
 				))}

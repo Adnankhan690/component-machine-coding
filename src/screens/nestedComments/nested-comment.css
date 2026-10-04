@@ -1,15 +1,21 @@
 .nested-main-con {
     border: 1px solid black;
-    /* display: flex; */
+    padding: 8px;
 }
 
-.nested-con {
-    display: flex;
+.nested-con .nested-con {
+    margin-left: 24px;
+    border-left: 1px solid #ddd;
+    padding-left: 12px;
 }
 
 .controls {
     display: flex;
-    gap: 4px;
-    margin-left: 2px;
-    align-items:center;
+    gap: 8px;
+    align-items: center;
+    padding: 4px 0;
+}
+
+.controls p {
+    margin: 0;
 }
