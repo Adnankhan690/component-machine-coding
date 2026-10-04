@@ -1,0 +1,28 @@
+.data-table-con {
+	overflow-x: auto;
+}
+
+.data-table {
+	border-collapse: collapse;
+	width: 100%;
+	font-size: 14px;
+}
+
+.data-table-caption {
+	text-align: left;
+	font-weight: 600;
+	padding-bottom: 8px;
+}
+
+.data-table th,
+.data-table td {
+	border: 1px solid #d0d0d0;
+	padding: 8px 12px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.data-table th {
+	background: #f4f4f4;
+	font-weight: 600;
+}

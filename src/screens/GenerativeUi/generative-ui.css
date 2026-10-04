@@ -1,0 +1,93 @@
+.genui-screen {
+	max-width: 760px;
+	padding: 16px;
+}
+
+.genui-sub {
+	color: #555;
+	margin-top: 4px;
+}
+
+.genui-form {
+	display: flex;
+	gap: 8px;
+	margin-top: 16px;
+}
+
+.genui-input {
+	flex: 1;
+	padding: 8px 12px;
+	border: 1px solid #c0c0c0;
+	border-radius: 6px;
+	font-size: 14px;
+}
+
+.genui-submit {
+	padding: 8px 16px;
+	border: 1px solid #333;
+	border-radius: 6px;
+	background: #333;
+	color: #fff;
+	cursor: pointer;
+}
+
+.genui-submit:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.genui-examples {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 12px;
+}
+
+.genui-example {
+	padding: 6px 10px;
+	border: 1px solid #c0c0c0;
+	border-radius: 999px;
+	background: #fff;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.genui-error {
+	margin-top: 16px;
+	padding: 8px 12px;
+	border: 1px solid #e0b4b4;
+	border-radius: 6px;
+	background: #fdf0f0;
+	color: #9b2c2c;
+}
+
+.genui-turns {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	margin-top: 32px;
+}
+
+.genui-turn {
+	border-top: 1px solid #e5e5e5;
+	padding-top: 16px;
+}
+
+.genui-question {
+	font-weight: 600;
+}
+
+.genui-text {
+	color: #444;
+}
+
+.genui-block {
+	margin-top: 12px;
+}
+
+.genui-meta {
+	margin-top: 12px;
+	font-size: 12px;
+	color: #888;
+	font-family: monospace;
+}

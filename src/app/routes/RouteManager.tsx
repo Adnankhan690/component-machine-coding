@@ -19,6 +19,7 @@ import ScreenAccordian from "@/screens/accordian/ScreenAccordian";
 import ScreenTabV2 from "@/screens/tab/ScreenTab";
 import ScreenStarRating from "@/screens/StarRating/ScreenStarRating";
 import ScreenDebouncedSearch from "@/screens/debounced-search/ScreenDebouncedSearch";
+import ScreenGenerativeUi from "@/screens/GenerativeUi/ScreenGenerativeUi";
 
 export default function RouteManager() {
 	return (
@@ -43,6 +44,7 @@ export default function RouteManager() {
 					<Route path={Routes.SCREEN_TAB_V2} element={<ScreenTabV2 />} />
 					<Route path={Routes.SCREEN_STAR_RATING} element={<ScreenStarRating />} />
 					<Route path={Routes.SCREEN_DEBOUNCED_SEARCH} element={<ScreenDebouncedSearch />} />
+					<Route path={Routes.SCREEN_GENERATIVE_UI} element={<ScreenGenerativeUi />} />
 				</Route>
 			</ReactRooutes>
 		</BrowserRouter>

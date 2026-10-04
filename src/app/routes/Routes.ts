@@ -18,6 +18,7 @@ const Routes = {
     SCREEN_TAB_V2: '/tab-v2',
     SCREEN_STAR_RATING: '/star-rating',
     SCREEN_DEBOUNCED_SEARCH: '/debounced-search',
+    SCREEN_GENERATIVE_UI: '/generative-ui',
 };
 
 export default Routes;
