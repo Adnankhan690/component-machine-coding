@@ -4,7 +4,7 @@ import { useState } from "react";
 interface Comments {
 	comment: string;
 	id: string;
-	child: Comments | [];
+	child: Comments[] | [];
 }
 
 export default function NestedComments() {
@@ -26,7 +26,27 @@ export default function NestedComments() {
 		setReply({ id: id, value: "" });
 	};
 
-	const handleReplyChange = () => {};
+	const handleReplyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setReply((prev) => ({
+			id: prev.id,
+			value: e.target.value.trim(),
+		}));
+	};
+
+	const handleAddReply = (id: string) => {
+		const add = (nestedCom: Comments[]) => {
+			nestedCom.map((com) => {
+				if (com.id === id) {
+					return {};
+				}
+				return { com, child: com.child.length !== 0 ? add(com.child) : [] };
+			});
+		};
+
+		setComments((prev) => {
+			return;
+		});
+	};
 
 	return (
 		<section className="nested-comments-screen">
@@ -47,7 +67,7 @@ export default function NestedComments() {
 					<div className="nested-con" key={comment.id}>
 						<div className="controls">
 							<p>{comment.comment}</p>
-							{comment.id !== reply ? (
+							{comment.id !== reply.id ? (
 								<button
 									onClick={() => {
 										handleReply(comment.id);
@@ -57,6 +77,12 @@ export default function NestedComments() {
 							) : (
 								<div>
 									<input placeholder="Reply ?" onChange={handleReplyChange} />
+									<button
+										onClick={() => {
+											handleAddReply(comment.id);
+										}}>
+										add
+									</button>
 								</div>
 							)}
 							{/* <button>delete</button> */}
