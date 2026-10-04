@@ -12,12 +12,16 @@ export default function NestedComments() {
 
 	const handleAddComment = (title: string) => {};
 
+	const handleChangeComment = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setComment(e.target.value.trim());
+	};
+
 	return (
 		<section className="nested-comments-screen">
 			<h1>Nested Comments</h1>
 
 			<div>
-				<input placeholder="Enter..." />
+				<input placeholder="Enter..." onChange={handleChangeComment} />
 				<button
 					onClick={() => {
 						handleAddComment(comment);
