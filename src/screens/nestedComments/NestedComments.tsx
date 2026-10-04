@@ -1,5 +1,6 @@
 import "./nested-comment.css";
 import { useState } from "react";
+import NestedComment from "./components/nestedComment";
 
 interface Comments {
 	comment: string;
@@ -56,7 +57,7 @@ export default function NestedComments() {
 		<section className="nested-comments-screen">
 			<h1>Nested Comments</h1>
 
-			<div>
+			{/* <div>
 				<input placeholder="Enter..." onChange={handleChangeComment} />
 				<button
 					onClick={() => {
@@ -77,7 +78,9 @@ export default function NestedComments() {
 						onAddReply={handleAddReply}
 					/>
 				))}
-			</div>
+			</div> */}
+
+            <NestedComment />
 		</section>
 	);
 }
