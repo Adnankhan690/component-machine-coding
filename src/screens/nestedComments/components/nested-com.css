@@ -1,0 +1,28 @@
+.main-con {
+    display: flex;
+}
+
+.control {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.control button {
+    all: unset;
+    color: blue;
+}
+
+.control input {
+    height: 16px;
+}
+
+.control button:hover {
+    color: blue;
+}
+
+.nested-con {
+    border-left: 1px solid black;
+    margin-left: 2px;
+    padding: 2px;
+}
