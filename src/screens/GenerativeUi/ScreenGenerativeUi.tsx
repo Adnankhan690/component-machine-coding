@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GenerativeUi, { type UiBlock } from "@/genui/GenerativeUi";
+import { UI_COMPONENTS } from "@/genui/tools";
 import "./generative-ui.css";
 
 interface Turn {
@@ -9,10 +10,24 @@ interface Turn {
 	model: string;
 }
 
+// Prompts chosen to land on different components, including the pairs that sit
+// closest together in the contract. The meta line under each answer prints what
+// the model actually picked — that is the tool for tuning the descriptions.
 const EXAMPLES = [
 	"Compare useMemo, useCallback and useRef",
 	"Explain the main stages of the React rendering lifecycle",
-	"Show the HTTP status codes in the 4xx range",
+	"Show the same HTTP request in fetch, axios and XHR",
+	"How do I set up Vite with React from scratch?",
+	"Give me a checklist for reviewing a pull request",
+	"Show the folder structure of a Vite React project",
+	"What are the trade-offs of adopting a monorepo?",
+	"List the most useful VS Code keyboard shortcuts",
+	"Give me a reference of common git commands",
+	"What is the version history of React?",
+	"Quiz me on JavaScript closures",
+	"Write the confirmation dialog for deleting an account",
+	"What is the difference between 16:9 and 4:3?",
+	"What is a closure?",
 ];
 
 export default function ScreenGenerativeUi() {
@@ -54,8 +69,9 @@ export default function ScreenGenerativeUi() {
 		<section className="genui-screen">
 			<h1>Generative UI</h1>
 			<p className="genui-sub">
-				The model picks a component and fills in its props. Table questions render a table,
-				topic questions render an accordion.
+				The model picks one of {UI_COMPONENTS.length} shadcn components and fills in its
+				props. The line under each answer shows which one it chose &mdash; or that it
+				answered in prose, which is also a correct outcome.
 			</p>
 
 			<form

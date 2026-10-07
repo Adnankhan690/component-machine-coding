@@ -6,7 +6,7 @@ import {
 	TableCell,
 	TableRow,
 } from "@/components/ui/table";
-import { isStr, list, obj } from "./guards";
+import { isStr, list, obj } from "@/lib/genui-guards";
 
 interface Shortcut {
 	id: string;

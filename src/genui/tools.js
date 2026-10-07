@@ -37,6 +37,8 @@ export const SHOW_PROS_CONS = "show_pros_cons";
 export const SHOW_KEY_VALUE = "show_key_value";
 export const SHOW_FILE_LIST = "show_file_list";
 export const SHOW_COMMAND_LIST = "show_command_list";
+export const SHOW_CONFIRM_DIALOG = "show_confirm_dialog";
+export const SHOW_ASPECT_RATIO = "show_aspect_ratio";
 
 // --- schema helpers -------------------------------------------------------
 // Only sugar. They exist so the *descriptions* stay the readable part of each
@@ -700,6 +702,45 @@ export const UI_COMPONENTS = [
 					id: ID,
 					command: str("The command exactly as typed."),
 					description: str("What it does, one line."),
+				},
+			}),
+		}),
+	},
+	{
+		name: SHOW_CONFIRM_DIALOG,
+		description:
+			"Render a confirmation dialog behind a trigger button. Use when the answer is the WORDING of " +
+			"a destructive-action confirmation — 'what should the delete-account dialog say', 'write the " +
+			"copy for an irreversible action'. It confirms nothing and runs nothing; it is the copy shown " +
+			"in situ. Prefer show_alert for a warning the reader just reads.",
+		schema: shape({
+			trigger: str("Label on the button that opens the dialog, e.g. 'Delete account'."),
+			title: str("The dialog's question or heading."),
+			description: str("One or two sentences on what happens and whether it can be undone."),
+			confirmLabel: str("Label on the destructive confirm button, e.g. 'Yes, delete it'."),
+			cancelLabel: str("Label on the dismiss button. Defaults to 'Cancel'."),
+		}, ["cancelLabel"]),
+	},
+	{
+		name: SHOW_ASPECT_RATIO,
+		description:
+			"Render labelled boxes at given aspect ratios so they can be compared by eye. Use when the " +
+			"answer is about SHAPE or proportions — 'what is the difference between 16:9 and 21:9', " +
+			"'what ratio should a thumbnail be'. Give the two sides as whole numbers; no images are " +
+			"involved. Prefer show_table when the answer is really about pixel dimensions.",
+		schema: shape({
+			caption: str("What these ratios are for."),
+			items: rows({
+				description: "2 to 6 ratios to compare.",
+				min: 2,
+				max: 6,
+				optional: ["note"],
+				of: {
+					id: ID,
+					label: str("What this ratio is called, e.g. 'Widescreen'."),
+					width: num("The width side of the ratio, e.g. 16."),
+					height: num("The height side of the ratio, e.g. 9."),
+					note: str("Optional one-line note on where it is used."),
 				},
 			}),
 		}),

@@ -4,7 +4,7 @@ import {
 	CollapsibleContent,
 	CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { isStr, obj } from "./guards";
+import { isStr, obj } from "@/lib/genui-guards";
 
 export default function CollapsibleBlock({ props }: { props: unknown }) {
 	const { summary, detail } = obj(props);

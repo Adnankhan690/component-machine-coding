@@ -1,6 +1,6 @@
 import { Minus, Plus } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { isStr, obj, strArr } from "./guards";
+import { isStr, obj, strArr } from "@/lib/genui-guards";
 
 export default function ProsConsBlock({ props }: { props: unknown }) {
 	const { subject, pros, cons } = obj(props);

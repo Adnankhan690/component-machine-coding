@@ -6,7 +6,7 @@ import {
 	BreadcrumbPage,
 	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { list, obj } from "./guards";
+import { list, obj } from "@/lib/genui-guards";
 
 interface Crumb {
 	id: string;
