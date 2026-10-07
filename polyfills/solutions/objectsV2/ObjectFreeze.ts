@@ -23,3 +23,9 @@ function myFreeze(obj) {
 
 	return obj;
 }
+
+const obj1 = { name: "adnan", age: 23 };
+myFreeze(obj1);
+
+obj1['name'] = "khan";
+console.log(obj1);
