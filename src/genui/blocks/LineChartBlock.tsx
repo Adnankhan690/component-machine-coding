@@ -5,7 +5,7 @@ import {
 	ChartTooltipContent,
 	type ChartConfig,
 } from "@/components/ui/chart";
-import { isStr, list, obj } from "./guards";
+import { isStr, list, obj } from "@/lib/genui-guards";
 
 interface Point {
 	label: string;

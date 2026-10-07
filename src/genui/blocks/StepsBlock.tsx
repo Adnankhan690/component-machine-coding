@@ -1,4 +1,4 @@
-import { isStr, list, obj } from "./guards";
+import { isStr, list, obj } from "@/lib/genui-guards";
 
 interface Step {
 	id: string;

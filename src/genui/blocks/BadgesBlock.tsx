@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { isStr, list, obj } from "./guards";
+import { isStr, list, obj } from "@/lib/genui-guards";
 
 interface Tag {
 	id: string;

@@ -6,7 +6,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import { isStr, list, obj } from "./guards";
+import { isStr, list, obj } from "@/lib/genui-guards";
 
 interface CardItem {
 	id: string;

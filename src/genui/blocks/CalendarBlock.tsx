@@ -1,5 +1,5 @@
 import { Calendar } from "@/components/ui/calendar";
-import { isStr, list, obj } from "./guards";
+import { isStr, list, obj } from "@/lib/genui-guards";
 
 interface Marked {
 	date: string;
