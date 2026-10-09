@@ -7,7 +7,7 @@ import {
 	ChartTooltipContent,
 	type ChartConfig,
 } from "@/components/ui/chart";
-import { isStr, list, obj } from "@/lib/genui-guards";
+import { isStr, list, obj } from "./guards";
 
 interface Segment {
 	id: string;

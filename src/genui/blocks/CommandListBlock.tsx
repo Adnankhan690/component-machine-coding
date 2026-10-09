@@ -6,7 +6,7 @@ import {
 	CommandItem,
 	CommandList,
 } from "@/components/ui/command";
-import { isStr, list, obj } from "@/lib/genui-guards";
+import { isStr, list, obj } from "./guards";
 
 interface Entry {
 	id: string;

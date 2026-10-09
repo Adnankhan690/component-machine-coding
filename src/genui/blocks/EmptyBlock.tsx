@@ -6,7 +6,7 @@ import {
 	EmptyMedia,
 	EmptyTitle,
 } from "@/components/ui/empty";
-import { isStr, obj } from "@/lib/genui-guards";
+import { isStr, obj } from "./guards";
 
 export default function EmptyBlock({ props }: { props: unknown }) {
 	const { title, description } = obj(props);

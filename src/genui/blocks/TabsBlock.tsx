@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { list, obj } from "@/lib/genui-guards";
+import { list, obj } from "./guards";
 
 interface TabItem {
 	id: string;

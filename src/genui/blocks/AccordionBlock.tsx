@@ -4,7 +4,7 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
-import { list, obj } from "@/lib/genui-guards";
+import { list, obj } from "./guards";
 
 interface Section {
 	id: string;

@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { isStr, list, obj } from "@/lib/genui-guards";
+import { isStr, list, obj } from "./guards";
 
 interface Stat {
 	id: string;

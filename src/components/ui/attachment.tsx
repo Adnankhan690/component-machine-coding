@@ -1,9 +1,6 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "cn"
-import { FileCode, FileText, Folder } from "lucide-react"
-
-import { isStr, list, obj } from "@/lib/genui-guards"
 import { Slot } from "radix-ui"
 
 import { Button } from "@/components/ui/button"
@@ -194,58 +191,8 @@ function AttachmentGroup({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-
-/* ---------------------------------------------------------------------------
- * Generative-UI entry point.
- *
- * No URL, no size, no upload state: the model is describing what files ARE
- * FOR, not handing over real uploads. `kind` is a closed token set mapped to
- * an icon here, so the model never names a component to mount.
- * ------------------------------------------------------------------------- */
-
-const ATTACHMENT_KINDS = { code: FileCode, doc: FileText, folder: Folder } as const
-
-interface AttachmentBlockFile {
-  id: string
-  name: string
-  kind: string
-  description: string
-}
-
-function AttachmentBlock({ props }: { props: unknown }) {
-  const { caption, files } = obj(props)
-  const entries = list<AttachmentBlockFile>(files, {
-    str: ["id", "name", "kind", "description"],
-  })
-  if (!entries) return null
-
-  return (
-    <section className="space-y-2">
-      {isStr(caption) && <p className="text-sm font-medium">{caption}</p>}
-      <AttachmentGroup>
-        {entries.map((entry) => {
-          const Icon =
-            ATTACHMENT_KINDS[entry.kind as keyof typeof ATTACHMENT_KINDS] ?? FileText
-          return (
-            <Attachment key={entry.id}>
-              <AttachmentMedia variant="icon">
-                <Icon />
-              </AttachmentMedia>
-              <AttachmentContent>
-                <AttachmentTitle>{entry.name}</AttachmentTitle>
-                <AttachmentDescription>{entry.description}</AttachmentDescription>
-              </AttachmentContent>
-            </Attachment>
-          )
-        })}
-      </AttachmentGroup>
-    </section>
-  )
-}
-
 export {
   Attachment,
-  AttachmentBlock,
   AttachmentGroup,
   AttachmentMedia,
   AttachmentContent,

@@ -1,4 +1,4 @@
-import { isStr, list, obj } from "@/lib/genui-guards";
+import { isStr, list, obj } from "./guards";
 
 interface Event {
 	id: string;

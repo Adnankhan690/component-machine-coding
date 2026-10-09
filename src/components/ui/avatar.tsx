@@ -2,17 +2,6 @@ import * as React from "react"
 import { cn } from "cn"
 import { Avatar as AvatarPrimitive } from "radix-ui"
 
-import { Badge } from "@/components/ui/badge"
-import {
-  Item,
-  ItemContent,
-  ItemDescription,
-  ItemGroup,
-  ItemMedia,
-  ItemTitle,
-} from "@/components/ui/item"
-import { initials, isStr, list, obj } from "@/lib/genui-guards"
-
 function Avatar({
   className,
   size = "default",
@@ -110,54 +99,8 @@ function AvatarGroupCount({
   )
 }
 
-
-/* ---------------------------------------------------------------------------
- * Generative-UI entry point.
- *
- * Note what is NOT asked of the model: an image `src`. A model has no way to
- * know a real avatar URL, so requiring one only invites a plausible invention
- * that 404s. Initials are derived here from the name instead.
- * ------------------------------------------------------------------------- */
-
-interface AvatarBlockPerson {
-  id: string
-  name: string
-  role: string
-  note?: string
-}
-
-function AvatarBlock({ props }: { props: unknown }) {
-  const people = list<AvatarBlockPerson>(obj(props).people, {
-    str: ["id", "name", "role"],
-    optStr: ["note"],
-  })
-  if (!people) return null
-
-  return (
-    <ItemGroup className="gap-1">
-      {people.map((person) => (
-        <Item key={person.id} variant="outline">
-          <ItemMedia>
-            <Avatar>
-              <AvatarFallback>{initials(person.name)}</AvatarFallback>
-            </Avatar>
-          </ItemMedia>
-          <ItemContent>
-            <ItemTitle>{person.name}</ItemTitle>
-            {isStr(person.note) && person.note !== "" && (
-              <ItemDescription>{person.note}</ItemDescription>
-            )}
-          </ItemContent>
-          <Badge variant="secondary">{person.role}</Badge>
-        </Item>
-      ))}
-    </ItemGroup>
-  )
-}
-
 export {
   Avatar,
-  AvatarBlock,
   AvatarImage,
   AvatarFallback,
   AvatarGroup,

@@ -6,7 +6,7 @@ import {
 	CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import { list, obj } from "@/lib/genui-guards";
+import { list, obj } from "./guards";
 
 interface Slide {
 	id: string;

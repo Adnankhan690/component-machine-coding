@@ -6,7 +6,7 @@ import {
 	ItemTitle,
 } from "@/components/ui/item";
 import { Badge } from "@/components/ui/badge";
-import { isStr, list, obj } from "@/lib/genui-guards";
+import { isStr, list, obj } from "./guards";
 
 interface Entry {
 	id: string;

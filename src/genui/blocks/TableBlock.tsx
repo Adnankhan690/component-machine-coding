@@ -7,7 +7,7 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
-import { isStr, obj, strArr } from "@/lib/genui-guards";
+import { isStr, obj, strArr } from "./guards";
 
 export default function TableBlock({ props }: { props: unknown }) {
 	const { caption, columns, rows } = obj(props);

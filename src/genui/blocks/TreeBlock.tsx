@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronRight, File, Folder } from "lucide-react";
-import { isStr, list, obj } from "@/lib/genui-guards";
+import { isStr, list, obj } from "./guards";
 
 interface Node {
 	id: string;

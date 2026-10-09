@@ -1,5 +1,5 @@
 import { Progress } from "@/components/ui/progress";
-import { isStr, list, obj, pct } from "@/lib/genui-guards";
+import { isStr, list, obj, pct } from "./guards";
 
 interface Meter {
 	id: string;

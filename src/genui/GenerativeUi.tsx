@@ -1,12 +1,10 @@
 import type { ComponentType } from "react";
-// These five shadcn components carry their own generative-UI entry point, so the
-// registry points straight at them instead of at a wrapper in this folder.
-import { AlertBlock } from "@/components/ui/alert";
-import { AlertDialogBlock } from "@/components/ui/alert-dialog";
-import { AspectRatioBlock } from "@/components/ui/aspect-ratio";
-import { AttachmentBlock } from "@/components/ui/attachment";
-import { AvatarBlock } from "@/components/ui/avatar";
 import AccordionBlock from "./blocks/AccordionBlock";
+import AlertBlock from "./blocks/AlertBlock";
+import AlertDialogBlock from "./blocks/AlertDialogBlock";
+import AspectRatioBlock from "./blocks/AspectRatioBlock";
+import AttachmentBlock from "./blocks/AttachmentBlock";
+import AvatarBlock from "./blocks/AvatarBlock";
 import BadgesBlock from "./blocks/BadgesBlock";
 import BarChartBlock from "./blocks/BarChartBlock";
 import BreadcrumbBlock from "./blocks/BreadcrumbBlock";

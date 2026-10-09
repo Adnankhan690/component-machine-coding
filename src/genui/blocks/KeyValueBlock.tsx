@@ -1,6 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import { Fragment } from "react";
-import { isStr, list, obj } from "@/lib/genui-guards";
+import { isStr, list, obj } from "./guards";
 
 interface Pair {
 	id: string;

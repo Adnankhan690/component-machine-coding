@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Bubble, BubbleContent, BubbleGroup } from "@/components/ui/bubble";
-import { initials, list, obj } from "@/lib/genui-guards";
+import { initials, list, obj } from "./guards";
 
 interface Turn {
 	id: string;
