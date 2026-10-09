@@ -74,3 +74,21 @@ employee.details.age = 31; // ❌ Fails silently or throws error in Strict Mode!
 
 Would you like to explore how Object.freeze() behaves with Arrays, or should we look at how to bypass or copy a frozen object when you actually need to update data?
 
+# Configurable Object Example
+const user = {};
+
+// Create a property with configurable: true
+Object.defineProperty(user, 'score', {
+  value: 100,
+  writable: false,      // It's read-only
+  configurable: true    // But it IS configurable!
+});
+
+// Since it's configurable, we can change its descriptor rules later!
+// Let's change it to be writable again:
+Object.defineProperty(user, 'score', {
+  writable: true        
+});
+
+user.score = 200; // ✅ Works! Because we reconfigured it.
+console.log(user.score); // 200
