@@ -81,9 +81,7 @@ const user = {};
 Object.defineProperty(user, 'score', {
   value: 100,
   writable: false,      // It's read-only
-  
   configurable: true    // But it IS configurable!
-
 });
 
 // Since it's configurable, we can change its descriptor rules later!
