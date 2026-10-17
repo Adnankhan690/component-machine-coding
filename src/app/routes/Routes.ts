@@ -20,6 +20,7 @@ const Routes = {
     SCREEN_DEBOUNCED_SEARCH: '/debounced-search',
     SCREEN_GENERATIVE_UI: '/generative-ui',
     SCREEN_NESTED_COMMENTS: '/nested-comments',
+    SCREEN_NESTED_CHECKBOX: '/nested-checkbox',
 };
 
 export default Routes;

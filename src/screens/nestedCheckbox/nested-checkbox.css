@@ -1,0 +1,21 @@
+.main-con {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.sub-con {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.checkbox-con {
+    margin-left: 12px;
+}
+
+.control-con {
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
