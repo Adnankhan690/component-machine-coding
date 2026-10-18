@@ -1,5 +1,6 @@
 import "./nested-checkbox.css";
 import Checkbox from "./components/Checkbox";
+import { useState } from "react";
 
 export interface Checkbox {
 	id: string;
@@ -66,13 +67,46 @@ const nestedCheckbox: Checkbox[] = [
 
 
 export default function NestedCheckbox() {
+	const [checkbox, setCheckbox] = useState<Checkbox[]>(nestedCheckbox);
+
+	const handleToggle = (
+		id: string,
+		e: React.ChangeEvent<HTMLInputElement>,
+	) => {
+		const isChecked = e.target.checked;
+		let searchId = id;
+
+		const toggle = (data: Checkbox[]): Checkbox[] => {
+			return data.map((box: Checkbox) => {
+				if (box.id === searchId) {
+					searchId = id;
+
+					return {
+						...box,
+						isChecked: isChecked,
+						child: toggle(box.child),
+					};
+				}
+
+				return {
+					...box,
+					child: toggle(box.child),
+				};
+			});
+		};
+		
+		setCheckbox((prev) => (
+			toggle(prev)
+		))
+	};
+	
 	return (
 		<section>
 			<h1>Nested Checkbox</h1>
 			{/* Implementation goes here. */}
 
 			<div className="main-con">
-				<Checkbox data={nestedCheckbox} />
+				<Checkbox data={checkbox} onToggle={handleToggle} />
 			</div>
 		</section>
 	);
