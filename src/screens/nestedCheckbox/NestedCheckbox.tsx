@@ -66,38 +66,57 @@ const nestedCheckbox: Checkbox[] = [
 ];
 
 
+// One traversal does both directions, because every recursive call has two
+// moments: before it recurses, and after.
+//
+//   DESCENDING  `force` carries the clicked node's value down to its subtree.
+//               null -> still searching. A parameter, not a closure variable,
+//               so it unwinds with the stack and cannot leak into siblings.
+//
+//   ASCENDING   `child` is already final here, so a parent derives itself from
+//               it. A node with children never owns its checked state: it is
+//               checked exactly when every child is. Only leaves hold a value.
+//
+// `id` matching nothing is a valid call: no node is forced, every parent is
+// re-derived from its children. That is how the seed data gets normalised.
+const applyToggle = (
+	data: Checkbox[],
+	id: string,
+	isChecked: boolean,
+	force: boolean | null,
+): Checkbox[] => {
+	return data.map((box: Checkbox) => {
+		const next = force ?? (box.id === id ? isChecked : null); // on the way down
+		const child = applyToggle(box.child, id, isChecked, next);
+
+		return {
+			...box,
+			isChecked:
+				child.length > 0
+					? child.every((c) => c.isChecked) // on the way up
+					: (next ?? box.isChecked), // leaf: forced, or left alone
+			child,
+		};
+	});
+};
+
+// No node carries an empty id, so this forces nothing and only derives parents.
+const NO_CLICK = "";
+
 export default function NestedCheckbox() {
-	const [checkbox, setCheckbox] = useState<Checkbox[]>(nestedCheckbox);
+	// The seed data has a checked parent with unchecked children, so derive it
+	// once up front rather than rendering a contradiction until the first click.
+	const [checkbox, setCheckbox] = useState<Checkbox[]>(() =>
+		applyToggle(nestedCheckbox, NO_CLICK, false, null),
+	);
 
 	const handleToggle = (
 		id: string,
 		e: React.ChangeEvent<HTMLInputElement>,
 	) => {
 		const isChecked = e.target.checked;
-		let searchId = id;
 
-		const toggle = (data: Checkbox[]): Checkbox[] => {
-			return data.map((box: Checkbox) => {
-				if (box.id === searchId) {
-					searchId = id;
-
-					return {
-						...box,
-						isChecked: isChecked,
-						child: toggle(box.child),
-					};
-				}
-
-				return {
-					...box,
-					child: toggle(box.child),
-				};
-			});
-		};
-		
-		setCheckbox((prev) => (
-			toggle(prev)
-		))
+		setCheckbox((prev) => applyToggle(prev, id, isChecked, null));
 	};
 	
 	return (
