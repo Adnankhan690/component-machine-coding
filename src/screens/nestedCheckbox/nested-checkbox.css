@@ -18,4 +18,8 @@
     display:flex;
     gap:12px;
     align-items:center;
+    /* the whole row is now clickable, so say so */
+    cursor: pointer;
+    /* stop a double-click on the title selecting the text instead of toggling */
+    user-select: none;
 }
