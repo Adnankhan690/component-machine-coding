@@ -103,6 +103,25 @@ const applyToggle = (
 // No node carries an empty id, so this forces nothing and only derives parents.
 const NO_CLICK = "";
 
+const addNestedCheck = (
+	data: Checkbox[],
+	force: boolean | null,
+	id: string,
+	isChecked: boolean,
+): Checkbox[] => {
+
+	return data.map((box) => {
+		const next = force ?? (box.id === id ? isChecked : null);
+		const children = addNestedCheck(box.child, next, id, isChecked);
+
+		return {
+			...box,
+			child: children,
+			isChecked: children.length > 0 ? children.every((ele) => ele.isChecked) : (next ?? box.isChecked)
+		}
+	})
+};
+
 export default function NestedCheckbox() {
 	// The seed data has a checked parent with unchecked children, so derive it
 	// once up front rather than rendering a contradiction until the first click.
@@ -110,14 +129,24 @@ export default function NestedCheckbox() {
 		applyToggle(nestedCheckbox, NO_CLICK, false, null),
 	);
 
-	const handleToggle = (
-		id: string,
-		e: React.ChangeEvent<HTMLInputElement>,
-	) => {
+	// const handleToggle = (
+	// 	id: string,
+	// 	e: React.ChangeEvent<HTMLInputElement>,
+	// ) => {
+	// 	const isChecked = e.target.checked;
+
+	// 	setCheckbox((prev) => applyToggle(prev, id, isChecked, null));
+	// };
+
+
+
+
+
+	const handleToggle = (id: string, e :React.ChangeEvent<HTMLInputElement>) => {
 		const isChecked = e.target.checked;
 
-		setCheckbox((prev) => applyToggle(prev, id, isChecked, null));
-	};
+		setCheckbox((prev) => addNestedCheck(prev, null, id, isChecked));
+	}
 	
 	return (
 		<section>
